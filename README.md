@@ -9,7 +9,7 @@ This is a mini C++ console game, simulating the Minsweeper game. It supports 3 c
   - "#" represents your current place
   - "." represents a free cell that has not been clicked on yet
   - "*" represents a bomb
-  - the number on a cell represent the number of bombs around this cell;
+  - the number on one cell represents the number of bombs around this cell;
 3. In the "Do: " command line, type in:
   - <kbd>W</kbd> to move upward
   - <kbd>S</kbd> to move downward
