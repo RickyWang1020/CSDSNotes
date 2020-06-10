@@ -6,7 +6,7 @@ This is a mini C++ console game, simulating the Minsweeper game.
 This game supports 3 classic difficulties (easy/medium/hard) and customizing the size of game board. The player can also "mark flag" on the potential bomb positions.
 
 ## How to Play
-1. Run the file and start by selecting the difficulty (the program will raise error when encountering invalid inputs);
+1. Run the main file and start by selecting the difficulty (the program will raise error when encountering invalid inputs);
 2. In the game interface:
   - the number of existed bombs will be shown on the first line (BOMBS LEFT), every time the player marks flag on a cell, the BOMBS LEFT will be reduced by 1
   - "#" represents your current place
@@ -32,15 +32,15 @@ This game supports 3 classic difficulties (easy/medium/hard) and customizing the
 
 - During the game (easy mode):
 
-![During_game](/Demo/game.png)
+![Game](/Demo/game.png)
 
 - Winning the game:
 
-![Winning](/Demo/win.png)
+![Win](/Demo/win.png)
 
 - Losing the game:
 
-![Losing](/Demo/lose.png)
+![Lose](/Demo/lose.png)
 
 ## Knowledge Applied to this Program
 - Switch Statements
