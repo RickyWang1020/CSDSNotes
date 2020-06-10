@@ -28,10 +28,19 @@ This game supports 3 classic difficulties (easy/medium/hard) and customizing the
 ## Demonstration Screenshot
 - Game execution in the console window:
 
-![Demo](/Demo_photo/Demo.png)
-- Game over message:
+![Starting_interface](/Demo/starting.png)
 
-![Demo_over](/Demo_photo/Demo_over.png)
+- During the game (easy mode):
+
+![During_game](/Demo/game.png)
+
+- Winning the game:
+
+![Winning](/Demo/win.png)
+
+- Losing the game:
+
+![Losing](/Demo/lose.png)
 
 ## Knowledge Applied to this Program
 - Switch Statements
