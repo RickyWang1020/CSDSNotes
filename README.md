@@ -5,6 +5,8 @@ This is a mini C++ console game, simulating the Minsweeper game.
 
 This game supports 3 classic difficulties (easy/medium/hard) and customizing the size of game board. The player can also "mark flag" on the potential bomb positions.
 
+This game has been tested on XCode v11.5.
+
 ## How to Play
 1. Run the main file and start by selecting the difficulty (the program will raise error when encountering invalid inputs);
 2. In the game interface:
