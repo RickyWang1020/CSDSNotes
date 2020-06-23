@@ -7,9 +7,12 @@
 //
 
 #include <iostream>
+#include "student.hpp"
+
+using namespace std;
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    Student student("Charlie Brown cb1234 55.2");
+    cout << student.get_name() << student.get_firstname() << student.get_lastname() << student.get_grade() << student.get_id() << endl;
     return 0;
 }
