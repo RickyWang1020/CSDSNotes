@@ -21,10 +21,10 @@ class Student_list{
         Student_list(std::string file_path);
         // class methods
         Student get_top_student();
-        std::vector <Student> get_excellent_student();
-        std::vector <Student> get_fail_student();
+        std::vector <Student> get_excellent_students();
+        std::vector <Student> get_fail_students();
     
-    private:
+    //private:
         // the list of students
         std::vector <Student> _students;
 };

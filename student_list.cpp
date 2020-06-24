@@ -13,14 +13,17 @@ using namespace std;
 Student_list::Student_list(string file_path){
     // the input file stream, to read the file
     ifstream student_file(file_path);
-    string one_line_content;
-    while (!student_file.eof()){
+    // declare a string to store the line's content
+    string line;
+    if (student_file){
         // read the file one line at a time
-        getline(student_file, one_line_content);
-        // store the line's content to the student class to creat one student profile
-        Student stu(one_line_content);
-        // store the student profile to the student list
-        _students.push_back(stu);
+        while (getline(student_file, line)){
+            // store the line's content to the student class to creat one student profile
+            Student stu(line);
+            // store the student profile to the student list
+            _students.push_back(stu);
+        }
     }
+
     student_file.close();
 }
