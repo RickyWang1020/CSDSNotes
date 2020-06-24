@@ -21,14 +21,14 @@ class Student{
         std::string get_firstname();
         std::string get_lastname();
         std::string get_name();
-        std::string get_id();
+        std::string get_email();
         double get_grade();
         
     private:
         // the class instances of student information
         std::string _first_name;
         std::string _last_name;
-        std::string _student_id;
+        std::string _student_email;
         double _grade;
 };
 

@@ -15,7 +15,7 @@ Student::Student(string student_info){
     stringstream student_stream(student_info);
     student_stream >> _first_name;
     student_stream >> _last_name;
-    student_stream >> _student_id;
+    student_stream >> _student_email;
     student_stream >> _grade;
 }
 
@@ -32,8 +32,8 @@ string Student::get_name(){
     return _first_name + " " + _last_name;
 }
 
-string Student::get_id(){
-    return _student_id;
+string Student::get_email(){
+    return _student_email;
 }
 
 double Student::get_grade(){
