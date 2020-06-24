@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include "student.hpp"
+#include "student_list.hpp"
 
 using namespace std;
 
