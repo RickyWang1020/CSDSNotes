@@ -12,8 +12,20 @@
 
 using namespace std;
 
-int main(int argc, const char * argv[]) {
-    Student student("Charlie Brown cb1234 55.2");
-    cout << student.get_name() << student.get_firstname() << student.get_lastname() << student.get_grade() << student.get_id() << endl;
+void printstudent(Student student){
+    cout << "Name: " << student.get_name() << endl;
+    cout << "First: " << student.get_firstname() << endl;
+    cout << "Last: " << student.get_lastname() << endl;
+    cout << "Grade: " << student.get_grade() << endl;
+    cout << "Email: " << student.get_email() << endl;
+    cout << endl;
+}
+
+int main() {
+    // the path of the file must be the full directory of the file on computer
+    Student_list list("/Users/lahmwang/Desktop/C Practice/Student_Grade_System/Student_Grade_System/student.txt");
+    for (Student s: list._students)
+        printstudent(s);
+    
     return 0;
 }
