@@ -24,7 +24,8 @@ void printstudent(Student student){
 int main() {
     // the path of the file must be the full directory of the file on computer
     Student_list list("/Users/lahmwang/Desktop/C Practice/Student_Grade_System/Student_Grade_System/student.txt");
-    for (Student s: list._students)
+    
+    for (Student s: list.get_fail_students())
         printstudent(s);
     
     return 0;

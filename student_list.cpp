@@ -24,6 +24,52 @@ Student_list::Student_list(string file_path){
             _students.push_back(stu);
         }
     }
+    
+    // sort the students by their score
+    sort(_students.begin(), _students.end(), [](Student &s1, Student &s2)
+         {
+        return s1.get_grade() > s2.get_grade();
+    });
 
     student_file.close();
+}
+
+
+Student Student_list::get_top_student(){
+    if (_students.size() == 0 || _students.at(0).get_grade() < 60)
+        throw NoTopStudentException();
+    else
+        return _students.at(0);
+}
+
+vector <Student> Student_list::get_excellent_students(){
+    vector <Student> excellent_students;
+    for (Student stu: _students){
+        // since the students are sorted in descending grade, break after we find the first under 85 student
+        if (stu.get_grade() < 85)
+            break;
+        else
+            excellent_students.push_back(stu);
+    }
+    
+    if (excellent_students.size() == 0)
+        throw NoExcellentStudentsException();
+    else
+        return excellent_students;
+}
+
+vector <Student> Student_list::get_fail_students(){
+    vector <Student> fail_students;
+    // reversely loop through the students
+    for (vector <Student>::reverse_iterator iter = _students.rbegin(); iter < _students.rend(); iter++){
+        if (iter -> get_grade() >= 60)
+            break;
+        else
+            fail_students.push_back(*iter);
+    }
+    
+    if (fail_students.size() == 0)
+        throw NoFailStudentsException();
+    else
+        return fail_students;
 }
