@@ -5,3 +5,5 @@
 ## Knowledge Applied to this Program
 - File stream and String stream
 - OOP
+- Vector
+- Exceptions
