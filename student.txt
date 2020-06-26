@@ -1,0 +1,5 @@
+John Doe john-doe@bogusemail.com 83.2
+Dave Smith davesmith@bogusemail.com 92.3
+Jane Stuart janestuart@bogusemail.com 74.1
+Tom Wright tomwright@bogusemail.com 99.3
+Steve Robinson steverobinson@bogusemail.com 35.2
