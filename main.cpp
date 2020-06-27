@@ -69,18 +69,49 @@ void main_loop(){
         cin >> output;
         switch (output){
             case 'r':
-            {
-                cout << "Type in the full path of the student grade file in your computer: " << endl;
-                string path;
+                // the path of the file must be the full directory of the file on computer
+                // recommend copy & paste the full path
+            {   cout << "Type in the full path of the student grade .txt file in your computer: " << endl;
+                string r_path;
                 // balance out the '\n' typed in the previous output
                 getchar();
-                getline(cin, path);
-                Student_list stu_list(path);
+                getline(cin, r_path);
+                cout << r_path << endl;
+                Student_list stu_list(r_path);
                 read_mode(stu_list);
                 break;
             }
             case 'w':
-            {   cout << "ok" << endl;
+                // the path of the file must be the full directory of the file on computer
+            {   cout << "Type in the full path of the student grade .txt file in your computer: " << endl;
+                string w_path;
+                // balance out the '\n' typed in the previous output
+                getchar();
+                getline(cin, w_path);
+                ofstream write_file;
+                write_file.open(w_path, ios::out);
+                char choice = 'y';
+                while (choice != 'n'){
+                    string First, Last, Email;
+                    double Grade;
+                    // get first name
+                    cout << "Enter the student's first name: " << endl;
+                    getline(cin, First);
+                    // get last name
+                    cout << "Enter the student's last name: " << endl;
+                    getline(cin, Last);
+                    // get email
+                    cout << "Enter the student's email: " << endl;
+                    getline(cin, Email);
+                    // get grade
+                    cout << "Enter the student's grade: " << endl;
+                    cin >> Grade;
+                    write_file << First << " " << Last << " " << Email << " " << Grade << endl;
+                    cout << "Continue writing into the file? [y/n]" << endl;
+                    cin >> choice;
+                    getchar();
+                }
+                write_file.close();
                 break;
             }
             case 'q':
@@ -98,9 +129,6 @@ void main_loop(){
 }
 
 int main() {
-    // the path of the file must be the full directory of the file on computer
-//    Student_list list("/Users/lahmwang/Desktop/C Practice/Student_Grade_System/Student_Grade_System/students.txt");
-//
     main_loop();
     
     return 0;
