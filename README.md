@@ -6,3 +6,5 @@
 [2] [GolangBot - Golang Tutorial Series](https://golangbot.com/learn-golang-series/)
 
 [3] [Tinywan - Golang系列教程](https://github.com/Tinywan/golang-tutorial)
+
+[4] [Tech With Tim - Golang Tutorial Playlist](https://www.youtube.com/c/TechWithTim/featured)
