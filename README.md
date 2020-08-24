@@ -7,4 +7,4 @@
 
 [3] [Tinywan - Golang系列教程](https://github.com/Tinywan/golang-tutorial)
 
-[4] [Tech With Tim - Golang Tutorial Playlist](https://www.youtube.com/c/TechWithTim/featured)
+[4] [Tech With Tim - Golang Tutorials Playlist](https://www.youtube.com/playlist?list=PLzMcBGfZo4-mtY_SE3HuzQJzuj4VlUG0q)
