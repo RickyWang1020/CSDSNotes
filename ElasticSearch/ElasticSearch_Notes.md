@@ -58,6 +58,36 @@
 
 ## Python
 
+- Elasticsearch v7及以上创建 `body` （包含 `settings` 和 `mappings` 两个键） 时报错：`Root mapping definition has unsupported parameters`
+
+  修改方法：`mapping` 字典内不可以包含自定义索引类型
+  
+  ```
+  correct_body = {
+      "settings": {
+          "number_of_shards": 3,
+          "number_of_replicas": 1
+      },
+      "mappings": {     // mapping下不要写自定义类型
+          "properties": {
+              "name": {
+                  "type": "text"
+              },
+              "country": {
+                  "type": "keyword"
+              },
+              "age": {
+                  "type": "integer"
+              },
+              "date": {
+                  "type": "date",
+                  "format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"
+              }
+          }
+      }
+  }
+  ```
+
 ## References
 
 [1] [Elasticsearch 快速开始](https://www.e-learn.cn/content/java/1078247)
