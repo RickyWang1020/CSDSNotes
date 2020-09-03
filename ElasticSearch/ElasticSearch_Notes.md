@@ -1,6 +1,6 @@
 # ElasticSearch_Notes
 
-## Commands
+## Commands in Cmd
 
 - Rest API
 
@@ -53,7 +53,10 @@
       
       并在命令行写入：`curl -H "Content-Type: application/json" -X POST "localhost:9200/customer/_doc/_bulk?pretty" --data-binary "@path/test.json"`
 
-- 
+- Search API
+
+
+## Python
 
 ## References
 
