@@ -24,7 +24,34 @@
   
   - 删除 `customer` 索引中 `id` 为 2 的文档：`curl -X DELETE "localhost:9200/customer/_doc/2?pretty"`
   
-  - 
+  - 批处理：
+  
+    - 在 `customer` 索引下同时创建 `id` 为 1 和 `id` 为 2 的文档（在 `test.json` 中写入以下内容）：
+    
+      ```json
+      {"index":{"_id": "1"}}
+      {"name":"John Doe"}
+      {"index":{"_id": "2"}}
+      {"name":"Jane Doe"}
+      // 要有空行！
+      
+      ```
+      
+      随后在命令行写入：`curl -H "Content-Type: application/json" -X POST "localhost:9200/customer/_doc/_bulk?pretty" --data-binary "@path/test.json"`
+      
+      （使用 `-d` 命令会自动忽略换行，导致报错）
+    
+    - 更新 `customer` 索引中 `id` 为 1 的文档并删除 `id` 为 2 的文档（在 `test.json` 中写入以下内容）：
+    
+      ```json
+      {"update":{"_id": "1"}}
+      {"doc": {"name":"John Doe becomes Jane Doe"}}
+      {"delete": {"_id": "2"}}
+      // 要有空行！
+      
+      ```
+      
+      并在命令行写入：`curl -H "Content-Type: application/json" -X POST "localhost:9200/customer/_doc/_bulk?pretty" --data-binary "@path/test.json"`
 
 - 
 
@@ -35,3 +62,5 @@
 [2] [Elasticsearch PUT 插入数据](https://www.cnblogs.com/wjm956/p/9925353.html)
 
 [3] [window下elasticsearch使用curl出现unmatched brace/bracket in column1](https://blog.csdn.net/johline/article/details/78794224)
+
+[4] [使用ElasticSearch在bulk导入json数据时，The bulk request must be terminated by a newline [\n]](https://blog.csdn.net/qq_36525906/article/details/103180776)
