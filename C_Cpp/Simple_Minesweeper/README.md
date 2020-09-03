@@ -30,19 +30,19 @@ This game has been tested on XCode v11.5.
 ## Demonstration Screenshot
 - Game execution in the console window:
 
-![Starting_interface](/Simple_Minesweeper/Demo/starting.png)
+![Starting_interface](/C_Cpp/Simple_Minesweeper/Demo/starting.png)
 
 - During the game (easy mode):
 
-![Game](/Simple_Minesweeper/Demo/game.png)
+![Game](/C_Cpp/Simple_Minesweeper/Demo/game.png)
 
 - Winning the game:
 
-![Win](/Simple_Minesweeper/Demo/win.png)
+![Win](/C_Cpp/Simple_Minesweeper/Demo/win.png)
 
 - Losing the game:
 
-![Lose](/Simple_Minesweeper/Demo/lose.png)
+![Lose](/C_Cpp/Simple_Minesweeper/Demo/lose.png)
 
 ## Knowledge Applied to this Program
 - Switch Statements
