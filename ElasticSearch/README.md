@@ -1,4 +1,4 @@
-# ElasticSearch_Notes
+# ElasticSearch Notes
 
 ## Commands in Cmd
 
