@@ -264,11 +264,12 @@ if __name__ == "__main__":
     print(all_response)
     print(5)
 
-    # match：搜索所有包含要检索的内容的文档（例：搜索所有name中包含test的文档）
+    # match：搜索所有包含要检索的内容的文档
     match_body = {
         "query": {
             "match": {
-                "name": "test"
+                # 这里，type中有minion或者human或者minion human的都会被搜到
+                "type": "minion human"
             }
         }
     }
