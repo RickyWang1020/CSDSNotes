@@ -1,7 +1,7 @@
 """
 Function: Testing the basics of elasticsearch using Python
 Author: Xinran Wang
-Date: 09/03/2020
+Date: 09/04/2020
 """
 
 from elasticsearch import Elasticsearch
