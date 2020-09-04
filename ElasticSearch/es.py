@@ -5,6 +5,7 @@ Date: 09/03/2020
 """
 
 from elasticsearch import Elasticsearch
+from elasticsearch import helpers
 
 
 class ElasticSearchClass:
@@ -130,6 +131,36 @@ class ElasticSearchClass:
         except Exception as err:
             print(err)
 
+    def gen_bulk_data(self, index_name, field_names, data):
+        """
+        生成需要bulk的文档集合
+        :param index_name: 需要将数据文档批量放入的index名
+        :param field_names: 需要在文档中添加的字段的名称（list）
+        :param data: 数据list（里面嵌套着小list，每个小list的内容对应field_names中的相应变量值）
+        :return: generator
+        """
+        try:
+            for d in data:
+                d_source_dic = {}
+                for v_idx, v in enumerate(field_names):
+                    d_source_dic[v] = d[v_idx]
+                yield {
+                    "_index": index_name,
+                    "_source": d_source_dic
+                }
+        except Exception as err:
+            print(err)
+
+    def bulk(self, actions):
+        """
+        批量数据上传
+        :param actions: gen_bulk_data生成的generator
+        :return: 数据添加之后的返回结果
+        """
+        try:
+            return helpers.bulk(self.es, actions)
+        except Exception as err:
+            print(err)
 
 
 if __name__ == "__main__":
@@ -197,25 +228,31 @@ if __name__ == "__main__":
     print(1)
 
     # 插入一个文档
-    # obj.create_document(index='test', id_name=16, body={"name": "ricky", "age": 10000})
-    # obj.create_document(index='test', id_name=12, body={"name": "rocky", "age": 111})
-    # obj.create_document(index='testing', id_name=9, body={"name": "jesse", "age": 21323})
-    # print(2)
+    obj.create_document(index='test', id_name=16, body={"name": "ricky", "age": 10000})
+    obj.create_document(index='test', id_name=12, body={"name": "rocky", "age": 111})
+    obj.create_document(index='testing', id_name=9, body={"name": "jesse", "age": 21323})
+    obj.create_document(index="new", id_name=1, body={'name': 'bob', 'age': 15, 'type': 'minion'})
+    obj.create_document(index="new", id_name=2, body={'name': 'stewart', 'age': 3, 'type': 'minion'})
+    obj.create_document(index="new", id_name=3, body={'name': 'kevin', 'age': 55, 'type': 'minion'})
+    obj.create_document(index="new", id_name=4, body={'name': 'gru', 'age': 65, 'type': 'human'})
+    obj.create_document(index="new", id_name=5, body={'name': 'kid', 'age': 1, 'type': 'human'})
+    obj.create_document(index="new", id_name=6, body={'name': 'vector', 'age': 32, 'type': 'human'})
+    print(2)
 
     # 插入多个测试文档
-    # for i in range(5):
-    #     obj.create_document(index="multi", id_name=i, body={"name": "test name", "age": i})
-    # print(3)
+    for i in range(5):
+        obj.create_document(index="multi", id_name=i, body={"name": "test name", "age": i})
+    print(3)
 
     # 更新文档内容
-    # update_body = {
-    #     "doc": {
-    #         "age": 10,
-    #         "score": "a+"
-    #     }
-    # }
-    # updated = obj.update("test", 16, update_body)
-    # print(4)
+    update_body = {
+        "doc": {
+            "age": 10,
+            "score": "a+"
+        }
+    }
+    updated = obj.update("test", 16, update_body)
+    print(4)
 
     # 查询所有数据
     all_body = {
@@ -227,7 +264,7 @@ if __name__ == "__main__":
     print(all_response)
     print(5)
 
-    # match：搜索所有包含要检索的内容的文档
+    # match：搜索所有包含要检索的内容的文档（例：搜索所有name中包含test的文档）
     match_body = {
         "query": {
             "match": {
@@ -239,4 +276,50 @@ if __name__ == "__main__":
     print(match_response)
     print(6)
 
-    # 
+    # bool组合查询
+    bool_body = {
+        "query": {
+            "bool": {
+                "should": [
+                    {
+                        "term": {
+                            "name": "gru"
+                        }
+                    },
+                    {
+                        "range": {
+                            "age": {
+                                # gt, lt - 大于小于；gte, lte - 大于等于，小于等于
+                                "gt": 0,
+                                "lt": 20
+                            }
+                        }
+                    }
+                ],
+                "must_not": {
+                    "match": {
+                        "type": "minion"
+                    }
+                }
+            }
+        },
+        # 字段排序
+        "sort": [
+            {
+                "age": {
+                    "order": "asc"
+                }
+            }
+        ]
+    }
+    bool_response = obj.search(index="new", body=bool_body)
+    print(bool_response)
+    print(7)
+
+    # scroll
+
+    # bulk
+    g = obj.gen_bulk_data("bulked", ["name", "school"], [["jack", "nyu"], ["jane", "thu"], ["lily", "sjtu"]])
+    bulked = obj.bulk(g)
+    print(8)
+
