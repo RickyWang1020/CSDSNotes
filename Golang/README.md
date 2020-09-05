@@ -1,6 +1,7 @@
-# Golang_Notes
+# Golang Notes
 
 ## References
+
 [1] [Go by Example 中文版](https://gobyexample-cn.github.io/)
 
 [2] [GolangBot - Golang Tutorial Series](https://golangbot.com/learn-golang-series/)
