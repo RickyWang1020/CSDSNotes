@@ -7,7 +7,7 @@
 - SQL uses **single quotes** to reference column values. If you're using an operator with values that are non-numeric, you need to put the value in single quotes: `'value'`.
 
 Example #1: 
-```
+```mysql
 SELECT *
   FROM tutorial.us_housing_units
  WHERE month_name > 'January'
@@ -15,7 +15,7 @@ SELECT *
 The month_name will be words that list after 'January' in a real dictionary.
 
 Example #2: 
-```
+```mysql
 SELECT *
   FROM tutorial.us_housing_units
  WHERE month_name > 'january'
@@ -23,7 +23,7 @@ SELECT *
 The month_name will be words that list after 'january' ('January' will be included!!) in a real dictionary.
 
 Example #3: 
-```
+```mysql
 SELECT *
   FROM tutorial.us_housing_units
  WHERE month_name > 'J'
@@ -33,7 +33,7 @@ The month_name will be words that list after letter 'J' ('January' will also be 
 - Arithmetic operating in `SELECT`: **Can only use for numeric values!**
 
 Example #1:
-```
+```mysql
 SELECT year,
        month,
        west,
@@ -46,7 +46,7 @@ SELECT year,
 - Wildcard (`%`): represents any characters or set of characters.
 
 Example #1:
-```
+```mysql
 SELECT *
   FROM tutorial.billboard_top_100_year_end
  WHERE "group" LIKE 'Snoop%'
@@ -58,7 +58,7 @@ Since `GROUP` is the name of a function, we use double quote to indicate that th
 - `LIKE` is **case-sensitive**. To ignore case, use `ILIKE`.
 
 Example #2: 
-```
+```mysql
 SELECT *
   FROM tutorial.billboard_top_100_year_end
  WHERE "group" ILIKE 'snoop%'
@@ -67,7 +67,7 @@ SELECT *
 - Can also use single underscore - "\_", to substitute for a character.
 
 Example #3: 
-```
+```mysql
 SELECT *
   FROM tutorial.billboard_top_100_year_end
  WHERE "group" ILIKE 'dr_ke'
@@ -75,14 +75,14 @@ SELECT *
 
 ## IN
 Example #1:
-```
+```mysql
 SELECT *
   FROM tutorial.billboard_top_100_year_end
  WHERE year_rank IN (1, 2, 3)
 ```
 
 Example #2:
-```
+```mysql
 SELECT *
   FROM tutorial.billboard_top_100_year_end
  WHERE artist IN ('Taylor Swift', 'Usher', 'Ludacris')
@@ -91,13 +91,13 @@ SELECT *
 ## BETWEEN
 
 The following codes have the same effect (`BETWEEN` is a closed interval):
-```
+```mysql
 SELECT *
   FROM tutorial.billboard_top_100_year_end
  WHERE year_rank BETWEEN 5 AND 10
 ```
 
-```
+```mysql
 SELECT *
   FROM tutorial.billboard_top_100_year_end
  WHERE year_rank >= 5 AND year_rank <= 10
