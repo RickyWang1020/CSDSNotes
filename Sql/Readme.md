@@ -87,3 +87,20 @@ SELECT *
   FROM tutorial.billboard_top_100_year_end
  WHERE artist IN ('Taylor Swift', 'Usher', 'Ludacris')
 ```
+
+## BETWEEN
+
+The following codes have the same effect (`BETWEEN` is a closed interval):
+```
+SELECT *
+  FROM tutorial.billboard_top_100_year_end
+ WHERE year_rank BETWEEN 5 AND 10
+```
+
+```
+SELECT *
+  FROM tutorial.billboard_top_100_year_end
+ WHERE year_rank >= 5 AND year_rank <= 10
+```
+
+## NOT, AND, OR
