@@ -103,4 +103,28 @@ SELECT *
  WHERE year_rank >= 5 AND year_rank <= 10
 ```
 
-## NOT, AND, OR
+## ORDER BY
+
+- Default: ascending, if want descending, use `DESC`.
+
+Example #1:
+```mysql
+SELECT *
+  FROM tutorial.billboard_top_100_year_end
+ WHERE year = 2013
+ ORDER BY year_rank DESC
+```
+- Order by multiple columns: the `DESC` operator is only applied to the column that precedes it!
+
+Example #2:
+```mysql
+-- year_rank ascending, year descending
+SELECT *
+  FROM tutorial.billboard_top_100_year_end
+ WHERE year_rank <= 3
+ ORDER BY year_rank, year DESC
+```
+
+- `ORDER BY` + `LIMIT`: ordering is executed first, then limit the result to a few rows
+
+# Intermediate
