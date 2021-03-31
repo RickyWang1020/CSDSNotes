@@ -3,6 +3,10 @@
 ## SELECT and WHERE
 - The clauses always need to be in this order: `SELECT`, `FROM`, `WHERE`.
 
+## LIMIT and OFFSET
+- LIMIT: the #of lines of data wanted to get
+- OFFSET: the #of lines of data wanted to skip
+
 ## Comparison Operators
 - SQL uses **single quotes** to reference column values. If you're using an operator with values that are non-numeric, you need to put the value in single quotes: `'value'`.
 
