@@ -128,3 +128,49 @@ SELECT *
 - `ORDER BY` + `LIMIT`: ordering is executed first, then limit the result to a few rows
 
 # Intermediate
+
+## COUNT
+- Basics:
+```mysql
+SELECT COUNT(*) FROM tutorial.aapl_historical_stock_price
+-- is the same as 
+SELECT COUNT(1) FROM tutorial.aapl_historical_stock_price
+```
+- Count an individual column
+```mysql
+SELECT COUNT(high) AS count_high
+  FROM tutorial.aapl_historical_stock_price
+```
+This will return the # of **non-null** rows in "high"
+
+## SUM (Only for numeric values)
+Example #1: return the average
+```mysql
+SELECT SUM(open) / COUNT(open) AS avg_open
+  FROM tutorial.aapl_historical_stock_price
+```
+The same effect as: (`AVG` will also ignore NULL values)
+```mysql
+SELECT AVG(open) AS avg_open
+  FROM tutorial.aapl_historical_stock_price
+```
+## GROUP BY
+Example #1:
+```mysql
+SELECT year,
+       month,
+       SUM(volume) AS volume_sum
+  FROM tutorial.aapl_historical_stock_price
+ GROUP BY year, month
+ ORDER BY year, month
+```
+Example #2: aggregate multiple functions
+```mysql
+SELECT year,
+       month,
+       MAX(high) AS max_val,
+       MIN(low) AS min_val
+   FROM tutorial.aapl_historical_stock_price
+  GROUP BY year, month
+  ORDER BY year, month
+```
