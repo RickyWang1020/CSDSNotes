@@ -174,3 +174,15 @@ SELECT year,
   GROUP BY year, month
   ORDER BY year, month
 ```
+
+## HAVING: a clean way to filter an aggregated query
+```
+SELECT year,
+       month,
+       MAX(high) AS month_high
+  FROM tutorial.aapl_historical_stock_price
+ GROUP BY year, month
+ -- select the rows with such conditions in an aggregated query
+ HAVING MAX(high) > 400
+ ORDER BY year, month
+```
