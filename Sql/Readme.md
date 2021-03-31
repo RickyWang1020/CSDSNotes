@@ -176,7 +176,8 @@ SELECT year,
 ```
 
 ## HAVING: a clean way to filter an aggregated query
-```
+
+```mysql
 SELECT year,
        month,
        MAX(high) AS month_high
@@ -186,3 +187,40 @@ SELECT year,
  HAVING MAX(high) > 400
  ORDER BY year, month
 ```
+
+## CASE: "if" statement
+
+- Basics: `WHEN`, `THEN` and `END` (`ELSE` is optional)
+
+```mysql
+SELECT player_name,
+       position,
+       CASE WHEN position = 'WR' THEN 'yes'
+            ELSE 'no' END AS is_wr
+  FROM benn.college_football_players
+```
+The `CASE` statement will check whether the values in the "position" column is 'WR': if so, write 'yes' in "is_wr" column, if not, write 'no' in "is_wr" column
+
+- Multiple conditions:
+
+Example #1: categorize the weight, which is already a good approach (if-elif-else format)
+```mysql
+SELECT player_name,
+       weight,
+       CASE WHEN weight > 250 THEN 'over 250'
+            WHEN weight > 200 THEN '201-250'
+            WHEN weight > 175 THEN '176-200'
+            ELSE '175 or under' END AS weight_group
+  FROM benn.college_football_players
+```
+Example #2: same as before, but it creates no-overlapping (which may be confusing) categories
+```mysql
+SELECT player_name,
+       weight,
+       CASE WHEN weight > 250 THEN 'over 250'
+            WHEN weight > 200 AND weight <= 250 THEN '201-250'
+            WHEN weight > 175 AND weight <= 200 THEN '176-200'
+            ELSE '175 or under' END AS weight_group
+  FROM benn.college_football_players
+```
+- 
