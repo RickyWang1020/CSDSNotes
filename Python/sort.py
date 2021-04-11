@@ -9,6 +9,7 @@ def bubble_sort(lst):
                 lst[j], lst[j-1] = lst[j-1], lst[j]
     return lst
 
+
 # Quicksort
 def quick_sort(lst):
     if not lst:
@@ -18,6 +19,7 @@ def quick_sort(lst):
     left = quick_sort([x for x in lst[1:] if x < pivot])
     right = quick_sort([x for x in lst[1:] if x >= pivot])
     return left + [pivot] + right
+
 
 # Merge Sort
 def merge(left, right):
@@ -42,6 +44,7 @@ def merge_sort(lst):
     right = lst[mid:]
     return merge(left, right)
 
+
 # Insertion Sort
 def insert_sort(lst):
     if not lst:
@@ -54,8 +57,42 @@ def insert_sort(lst):
             j -= 1
         lst[j] = temp
     return lst
-        
+ 
+   
 # Heap Sort
-def 
+def siftup(lst, temp, begin, end):
+    # temp: the current "root" value, and it will possibly be swapped downwards
+    # begin: the "root" node index for downward sift-up operation
+    # end: the ending boundary index for the heap
+    if not lst:
+        return []
+    i, j = begin, begin * 2 + 1
+    while j < end:
+        # among all children (no grandchild, grand-grandchild,...), pick the largest one to compare with its parent
+        # (and exchange with its parent if child_val > parent_val)
+        if j + 1 < end and lst[j + 1] > lst[j]:
+            j += 1
+        elif temp > lst[j]:
+            break
+        else:
+            lst[i] = lst[j]
+            i, j = j, 2 * j + 1
+    lst[i] = temp
+
+def heap_sort(lst):
+    if not lst:
+        return []
+    end = len(lst)
+    # for all non-leaf nodes, perform sift-up (from the second-lowest level to highest)
+    # to arrange them into correct max-heap position
+    for r in range((end // 2) - 1, -1, -1):
+        siftup(lst, lst[r], r, end)
+    # every time, "take out" the top of heap (the max in the tree)
+    # and perform sift-up to produce the new heap max
+    for k in range(end - 1, 0, -1):
+        temp = lst[k]
+        lst[k] = lst[0]
+        siftup(lst, temp, 0, k)
+    return lst
         
-      
+    
