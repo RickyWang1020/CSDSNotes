@@ -319,3 +319,27 @@ SELECT COUNT(CASE WHEN year = 'FR' THEN 1 ELSE NULL END) AS fr_count,
   FROM benn.college_football_players
 ```
 
+## DISTINCT
+
+- Select unique values from one column:
+
+```mysql
+SELECT DISTINCT month
+  FROM tutorial.aapl_historical_stock_price
+```
+
+- Select all unique pairs of values in multiple columns:
+
+```mysql
+SELECT DISTINCT year, month
+  FROM tutorial.aapl_historical_stock_price
+```
+
+- `DISTINCT` in aggregations
+
+Example #1: count the unique values in `month` column
+
+```mysql
+SELECT COUNT(DISTINCT month) AS unique_months
+  FROM tutorial.aapl_historical_stock_price
+```
