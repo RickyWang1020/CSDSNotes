@@ -133,6 +133,10 @@ SELECT *
 
 # Intermediate
 
+## Aggregate Functions
+
+- `COUNT`, `SUM`, `MIN`, `MAX`, `AVG`
+
 ## COUNT
 - Basics:
 ```mysql
@@ -158,8 +162,21 @@ The same effect as: (`AVG` will also ignore NULL values)
 SELECT AVG(open) AS avg_open
   FROM tutorial.aapl_historical_stock_price
 ```
-## GROUP BY
-Example #1:
+## GROUP BY: separate data into groups, so that aggregation can be further applied
+
+- Basics:
+
+Example #1: count the number of entries for each year and month
+```mysql
+SELECT year,
+       month,
+       COUNT(*) AS count
+  FROM tutorial.aapl_historical_stock_price
+ GROUP BY year, month
+```
+
+- `GROUP BY` + `ORDER BY`
+Example #2:
 ```mysql
 SELECT year,
        month,
@@ -168,7 +185,7 @@ SELECT year,
  GROUP BY year, month
  ORDER BY year, month
 ```
-Example #2: aggregate multiple functions
+Example #3: aggregate multiple functions
 ```mysql
 SELECT year,
        month,
