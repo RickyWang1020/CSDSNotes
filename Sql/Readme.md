@@ -36,7 +36,7 @@ The month_name will be words that list after letter 'J' ('January' will also be 
 
 - Arithmetic operating in `SELECT`: **Can only use for numeric values!**
 
-Example #1:
+Example #4:
 ```mysql
 SELECT year,
        month,
