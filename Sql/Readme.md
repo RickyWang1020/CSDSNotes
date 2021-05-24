@@ -138,12 +138,13 @@ SELECT *
 - `COUNT`, `SUM`, `MIN`, `MAX`, `AVG`
 
 ## COUNT
-- Basics:
+- Basics: `COUNT(1)` and `COUNT(*)` both return the number of rows of the table
 ```mysql
 SELECT COUNT(*) FROM tutorial.aapl_historical_stock_price
 -- is the same as 
 SELECT COUNT(1) FROM tutorial.aapl_historical_stock_price
 ```
+
 - Count an individual column
 ```mysql
 SELECT COUNT(high) AS count_high
@@ -152,6 +153,7 @@ SELECT COUNT(high) AS count_high
 This will return the # of **non-null** rows in "high"
 
 ## SUM (Only for numeric values)
+
 Example #1: return the average
 ```mysql
 SELECT SUM(open) / COUNT(open) AS avg_open
@@ -176,6 +178,7 @@ SELECT year,
 ```
 
 - `GROUP BY` + `ORDER BY`
+
 Example #2:
 ```mysql
 SELECT year,
@@ -185,6 +188,7 @@ SELECT year,
  GROUP BY year, month
  ORDER BY year, month
 ```
+
 Example #3: aggregate multiple functions
 ```mysql
 SELECT year,
@@ -198,6 +202,8 @@ SELECT year,
 
 ## HAVING: a clean way to filter an aggregated query
 
+- `WHERE` does not filt for a condition comparison of aggregated columns (such as `MAX(high) > 400`), so we use `HAVING`:
+
 ```mysql
 SELECT year,
        month,
@@ -208,6 +214,8 @@ SELECT year,
  HAVING MAX(high) > 400
  ORDER BY year, month
 ```
+
+- Order of query clause so far: `SELECT`, `FROM`, `WHERE`, `GROUP BY`, `HAVING`, `ORDER BY`
 
 ## CASE: "if" statement
 
@@ -244,4 +252,70 @@ SELECT player_name,
             ELSE '175 or under' END AS weight_group
   FROM benn.college_football_players
 ```
-- 
+
+- `CASE` with aggregate functions
+
+Example #3: counting multiple conditions
+
+```mysql
+SELECT CASE WHEN year = 'FR' THEN 'FR'
+            WHEN year = 'SO' THEN 'SO'
+            WHEN year = 'JR' THEN 'JR'
+            WHEN year = 'SR' THEN 'SR'
+            ELSE 'No Year Data' END AS year_group,
+            COUNT(1) AS count
+  FROM benn.college_football_players
+ GROUP BY year_group
+```
+
+To help with this procedure, can first write this block to show all columns in the data table as well as a column showing the results of `CASE` statement. Then, can replace `*` with an aggregation and add a `GROUP BY` clause.
+
+```mysql
+SELECT CASE WHEN year = 'FR' THEN 'FR'
+            WHEN year = 'SO' THEN 'SO'
+            WHEN year = 'JR' THEN 'JR'
+            WHEN year = 'SR' THEN 'SR'
+            ELSE 'No Year Data' END AS year_group,
+            *
+  FROM benn.college_football_players
+```
+
+Example #4: summing the weights of all FR/SO or JR/SR groups in California
+
+```mysql
+SELECT CASE WHEN year in ('FR', 'SO') THEN 'under'
+            WHEN year in ('JR', 'SR') THEN 'upper'
+            ELSE 'Other' END AS year_level,
+            SUM(weight) as total_wright
+  FROM benn.college_football_players
+  WHERE state = 'CA'
+  GROUP BY year_level
+```
+
+- `CASE` inside of aggregate functions
+
+"Pivoting": instead of showing the data vertically in multiple rows, show the data horizontally in one row
+
+This gives a vertical display:
+
+```mysql
+SELECT CASE WHEN year = 'FR' THEN 'FR'
+            WHEN year = 'SO' THEN 'SO'
+            WHEN year = 'JR' THEN 'JR'
+            WHEN year = 'SR' THEN 'SR'
+            ELSE 'No Year Data' END AS year_group,
+            COUNT(1) AS count
+  FROM benn.college_football_players
+ GROUP BY 1
+```
+
+This converts to horizontal display:
+
+```mysql
+SELECT COUNT(CASE WHEN year = 'FR' THEN 1 ELSE NULL END) AS fr_count,
+       COUNT(CASE WHEN year = 'SO' THEN 1 ELSE NULL END) AS so_count,
+       COUNT(CASE WHEN year = 'JR' THEN 1 ELSE NULL END) AS jr_count,
+       COUNT(CASE WHEN year = 'SR' THEN 1 ELSE NULL END) AS sr_count
+  FROM benn.college_football_players
+```
+
