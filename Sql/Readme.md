@@ -361,6 +361,8 @@ SELECT players.school_name,
 
 - Basics:
 
+![inner_join](./pics/inner.png)
+
 ```mysql
 JOIN benn.college_football_teams teams
 -- is the same as 
@@ -402,7 +404,7 @@ SELECT *
     ON teams.school_name = players.school_name
 ```
 
-Example #2: only see columns from `players` table
+Example #3: only see columns from `players` table
 
 ```mysql
 SELECT players.*
@@ -417,4 +419,52 @@ SELECT players.*
 - `RIGHT JOIN` returns only unmatched rows from the right table (all entries in the right table will be kept in the result).
 - `FULL OUTER JOIN` returns unmatched rows from both tables (similar to union).
 
+## LEFT (OUTER) JOIN
 
+- Basics:
+
+![left_join](./pics/left.png)
+
+```mysql
+SELECT companies.permalink AS companies_permalink,
+       companies.name AS companies_name,
+       acquisitions.company_permalink AS acquisitions_permalink,
+       acquisitions.acquired_at AS acquired_date
+  FROM tutorial.crunchbase_companies companies
+  LEFT JOIN tutorial.crunchbase_acquisitions acquisitions
+    ON companies.permalink = acquisitions.company_permalink
+```
+
+It will tell the database to return all rows in the table in the `FROM` clause, **regardeless of whether** they have matches in the table in the `LEFT JOIN` clause.
+
+- Exercise: Count the number of unique companies (don't double-count companies) and unique acquired companies by state. Do not include results for which there is no state data, and order by the number of acquired companies from highest to lowest.
+
+```mysql
+SELECT companies.state_code, 
+       COUNT(DISTINCT companies.permalink) AS count_cp,
+       COUNT(DISTINCT acquisitions.company_permalink) AS count_ap
+  FROM tutorial.crunchbase_companies companies
+  LEFT JOIN tutorial.crunchbase_acquisitions acquisitions
+    ON companies.permalink = acquisitions.company_permalink
+  WHERE companies.state_code IS NOT NULL
+  GROUP BY companies.state_code
+  ORDER BY count_ap DESC
+```
+
+## RIGHT (OUTER) JOIN
+
+- Similar to `LEFT JOIN`, but will return all rows in the table in the `JOIN` clause. It is rarely used because you can achieve the results of a `RIGHT JOIN` by simply switching the two joined table names in a `LEFT JOIN`.
+
+![right_join](./pics/right.png)
+
+Example #1: the same effect as `LEFT JOIN`
+
+```mysql
+SELECT companies.permalink AS companies_permalink,
+       companies.name AS companies_name,
+       acquisitions.company_permalink AS acquisitions_permalink,
+       acquisitions.acquired_at AS acquired_date
+  FROM tutorial.crunchbase_acquisitions acquisitions
+ RIGHT JOIN tutorial.crunchbase_companies companies
+    ON companies.permalink = acquisitions.company_permalink
+```
