@@ -437,6 +437,8 @@ SELECT companies.permalink AS companies_permalink,
 
 It will tell the database to return all rows in the table in the `FROM` clause, **regardeless of whether** they have matches in the table in the `LEFT JOIN` clause.
 
+- The conditions in `ON` will do the filtering **before** the join occurs (i.e., an evaluation on a single table), but the conditions in `WHERE` will do the filtering **after** the tables are joined.
+
 - Exercise: Count the number of unique companies (don't double-count companies) and unique acquired companies by state. Do not include results for which there is no state data, and order by the number of acquired companies from highest to lowest.
 
 ```mysql
@@ -465,6 +467,8 @@ SELECT companies.permalink AS companies_permalink,
        acquisitions.company_permalink AS acquisitions_permalink,
        acquisitions.acquired_at AS acquired_date
   FROM tutorial.crunchbase_acquisitions acquisitions
- RIGHT JOIN tutorial.crunchbase_companies companies
+  RIGHT JOIN tutorial.crunchbase_companies companies
     ON companies.permalink = acquisitions.company_permalink
 ```
+
+## FULL OUTER JOIN
