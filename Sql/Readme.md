@@ -343,3 +343,59 @@ Example #1: count the unique values in `month` column
 SELECT COUNT(DISTINCT month) AS unique_months
   FROM tutorial.aapl_historical_stock_price
 ```
+
+## SQL Aliases
+
+```mysql
+SELECT players.school_name,
+       players.player_name,
+       players.position,
+       players.weight
+  -- the table is aliased to "players"
+  FROM benn.college_football_players players
+ WHERE players.state = 'GA'
+ ORDER BY players.weight DESC
+```
+
+## (INNER) JOIN
+
+- Basics:
+
+```mysql
+SELECT teams.conference AS conference,
+       AVG(players.weight) AS average_weight
+  FROM benn.college_football_players players
+  JOIN benn.college_football_teams teams
+    ON teams.school_name = players.school_name
+ GROUP BY teams.conference
+ ORDER BY AVG(players.weight) DESC
+```
+
+- `JOIN` and `ON`
+
+```mysql
+ON teams.school_name = players.school_name
+```
+
+Joins all rows from the `players` table on to rows in the `teams` table for which the `school_name` field in the `players` table is equal to the `school_name` field in the `teams` table.
+
+- Helper methods:
+
+Example #1: see all columns of both tables returned by `JOIN`
+
+```mysql
+SELECT *
+  FROM benn.college_football_players players
+  JOIN benn.college_football_teams teams
+    ON teams.school_name = players.school_name
+```
+
+Example #2: only see columns from `players` table
+
+```mysql
+SELECT players.*
+  FROM benn.college_football_players players
+  JOIN benn.college_football_teams teams
+    ON teams.school_name = players.school_name
+```
+
