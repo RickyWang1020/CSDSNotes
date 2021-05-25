@@ -357,9 +357,19 @@ SELECT players.school_name,
  ORDER BY players.weight DESC
 ```
 
-## (INNER) JOIN
+## (INNER) JOIN: the intersection of two tables
 
 - Basics:
+
+```mysql
+JOIN benn.college_football_teams teams
+-- is the same as 
+INNER JOIN benn.college_football_teams teams
+```
+
+Inner joins eliminate rows from both tables that do not satisfy the join condition set forth in the `ON` statement.
+
+Example #1:
 
 ```mysql
 SELECT teams.conference AS conference,
@@ -371,6 +381,8 @@ SELECT teams.conference AS conference,
  ORDER BY AVG(players.weight) DESC
 ```
 
+If a player goes to a school that is not in `teams` table, then the player will not be included in the resulted table; if there are schools in the teams table that do not match any school in the `players` table, those rows will not be included in the resulted table either.
+
 - `JOIN` and `ON`
 
 ```mysql
@@ -381,7 +393,7 @@ Joins all rows from the `players` table on to rows in the `teams` table for whic
 
 - Helper methods:
 
-Example #1: see all columns of both tables returned by `JOIN`
+Example #2: see all columns of both tables returned by `JOIN`
 
 ```mysql
 SELECT *
@@ -398,4 +410,11 @@ SELECT players.*
   JOIN benn.college_football_teams teams
     ON teams.school_name = players.school_name
 ```
+
+## Outer Joins
+
+- `LEFT JOIN` returns only unmatched rows from the left table (all entries in the left table will be kept in the result).
+- `RIGHT JOIN` returns only unmatched rows from the right table (all entries in the right table will be kept in the result).
+- `FULL OUTER JOIN` returns unmatched rows from both tables (similar to union).
+
 
