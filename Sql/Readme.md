@@ -131,6 +131,20 @@ SELECT *
 
 - `ORDER BY` + `LIMIT`: ordering is executed first, then limit the result to a few rows
 
+## DELETE
+
+- Basics: delete some rows with specific conditions
+
+```mysql
+DELETE FROM Customers WHERE CustomerName='James'
+```
+
+- Delete all records in a table without deleting the table itself
+
+```mysql
+DELETE FROM Customers
+```
+
 # Intermediate
 
 ## Aggregate Functions
@@ -576,4 +590,67 @@ SELECT 'Part_2' AS part,
   GROUP BY part, companies.status
 ```
 
+## Self Joins
 
+- Reference the same table using different aliases so as to perform self joins
+
+```mysql
+SELECT DISTINCT japan_investments.company_name,
+       japan_investments.company_permalink
+  -- here, the same table is given different aliases
+  FROM tutorial.crunchbase_investments_part1 japan_investments
+  JOIN tutorial.crunchbase_investments_part1 gb_investments
+    ON japan_investments.company_name = gb_investments.company_name
+   AND gb_investments.investor_country_code = 'GBR'
+   AND gb_investments.funded_at > japan_investments.funded_at
+ WHERE japan_investments.investor_country_code = 'JPN'
+```
+
+## Joins on Multiple Keys
+
+- Advantages:
+  - Accuracy
+  - Performance of speed
+
+Example #1: the result of the query will be the same with or without the last line, but it can potentially make the query run faster
+
+```mysql
+SELECT companies.permalink,
+       companies.name,
+       investments.company_name,
+       investments.company_permalink
+  FROM tutorial.crunchbase_companies companies
+  LEFT JOIN tutorial.crunchbase_investments_part1 investments
+    ON companies.permalink = investments.company_permalink
+   AND companies.name = investments.company_name
+```
+
+## Joins with WHERE or ON
+
+- Conditions in `ON` statement: first filter by the conditions, then join rows
+
+```mysql
+SELECT companies.permalink,
+       companies.name,
+       companies.status,
+       COUNT(investments.investor_permalink) AS investors
+  FROM tutorial.crunchbase_companies companies
+  LEFT JOIN tutorial.crunchbase_investments_part1 investments
+    ON companies.permalink = investments.company_permalink
+   AND investments.funded_year > companies.founded_year + 5
+ GROUP BY companies.permalink, companies.name, companies.status
+```
+
+- Conditions in `WHERE` statement: first join all rows, then filter
+
+```mysql
+SELECT companies.permalink,
+       companies.name,
+       companies.status,
+       COUNT(investments.investor_permalink) AS investors
+  FROM tutorial.crunchbase_companies companies
+  LEFT JOIN tutorial.crunchbase_investments_part1 investments
+    ON companies.permalink = investments.company_permalink
+ WHERE investments.funded_year > companies.founded_year + 5
+ GROUP BY companies.permalink, companies.name, companies.status
+```
