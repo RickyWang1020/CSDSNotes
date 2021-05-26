@@ -471,4 +471,23 @@ SELECT companies.permalink AS companies_permalink,
     ON companies.permalink = acquisitions.company_permalink
 ```
 
-## FULL OUTER JOIN
+## FULL (OUTER) JOIN
+
+- Basics:
+
+![outer_join](./pics/outer.png)
+
+```mysql
+SELECT COUNT(CASE WHEN companies.permalink IS NOT NULL AND acquisitions.company_permalink IS NULL
+                  THEN companies.permalink ELSE NULL END) AS companies_only,
+       COUNT(CASE WHEN companies.permalink IS NOT NULL AND acquisitions.company_permalink IS NOT NULL
+                  THEN companies.permalink ELSE NULL END) AS both_tables,
+       COUNT(CASE WHEN companies.permalink IS NULL AND acquisitions.company_permalink IS NOT NULL
+                  THEN acquisitions.company_permalink ELSE NULL END) AS acquisitions_only
+  FROM tutorial.crunchbase_companies companies
+  FULL JOIN tutorial.crunchbase_acquisitions acquisitions
+    ON companies.permalink = acquisitions.company_permalink
+```
+
+It is usually used to check the amount of overlap between two tables.
+
