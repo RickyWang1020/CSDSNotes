@@ -306,7 +306,7 @@ SELECT CASE WHEN year = 'FR' THEN 'FR'
             ELSE 'No Year Data' END AS year_group,
             COUNT(1) AS count
   FROM benn.college_football_players
- GROUP BY 1
+ GROUP BY year_group
 ```
 
 This converts to horizontal display:
@@ -490,4 +490,90 @@ SELECT COUNT(CASE WHEN companies.permalink IS NOT NULL AND acquisitions.company_
 ```
 
 It is usually used to check the amount of overlap between two tables.
+
+## UNION
+
+- `UNION` helps to stack one dataset on top of the other: write separate `SELECT` statements, and have the results of one statement display in the same table as the results from the other statement.
+
+Example #1: 
+```mysql
+SELECT *
+  FROM tutorial.crunchbase_investments_part1
+
+ UNION
+
+ SELECT *
+   FROM tutorial.crunchbase_investments_part2
+```
+
+Note: `UNION` only appends distinct values, that is to say, any rows in the appended table that are exactly identical to rows in the first table are dropped! (For example, 
+
+```mysql
+(
+    SELECT 1 ID
+    UNION
+    SELECT 2
+    UNION
+    SELECT 3
+)
+UNION
+(
+    SELECT 3
+    UNION
+    SELECT 4
+    UNION
+    SELECT 5
+)
+```
+will give 1,2,3,4,5 as result)
+
+- `UNION ALL`: will keep all the identical rows in the appended table.
+
+Example #2:
+
+```mysql
+(
+    SELECT 1 ID
+    UNION
+    SELECT 2
+    UNION
+    SELECT 3
+)
+UNION ALL
+(
+    SELECT 3
+    UNION
+    SELECT 4
+    UNION
+    SELECT 5
+)
+```
+It will give 1,2,3,3,4,5 as result.
+
+- SQL has strict rules for appending data:
+  - Both tables must have the same number of columns
+  - Both tables must have columns with the same data types, in the same order
+
+- Exercise: Write a query that shows 3 columns. The first indicates which dataset (part 1 or 2) the data comes from, the second shows company status, and the third is a count of the number of investors.
+
+```mysql
+SELECT 'Part_1' AS part, 
+    companies.status, 
+    COUNT(DISTINCT invest1.investor_permalink) AS invest_count
+  FROM tutorial.crunchbase_companies companies
+  LEFT JOIN tutorial.crunchbase_investments_part1 invest1
+  ON companies.permalink = invest1.company_permalink
+  GROUP BY part, companies.status
+
+ UNION
+
+SELECT 'Part_2' AS part, 
+    companies.status, 
+    COUNT(DISTINCT invest2.investor_permalink) AS invest_count
+  FROM tutorial.crunchbase_companies companies
+  LEFT JOIN tutorial.crunchbase_investments_part2 invest2
+  ON companies.permalink = invest2.company_permalink
+  GROUP BY part, companies.status
+```
+
 
