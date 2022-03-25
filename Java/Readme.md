@@ -2,9 +2,9 @@
 
 ## Increment in Java: post and pre methods
 
-1) Post-Increment (i++): we use i++ in our statement if we want to use the current value, and then we want to increment the value of i by 1.
+1) Post-Increment (i++): we first use the current value, and then increment the value of i by 1.
 
-2) Pre-Increment (++i): We use ++i in our statement if we want to increment the value of i by 1 and then use it in our statement.
+2) Pre-Increment (++i): we first increment the value of i by 1, and then use its value.
 
 Example:
 
@@ -22,4 +22,24 @@ System.out.println("Pre-Increment");
 
 // j is incremented to 1 and then it's value is returned
 System.out.println(++j); // this will return 1, and j is 1 now
+```
+
+Example 2:
+``` java
+// ++a increments and then uses the variable.
+// a++ uses and then increments the variable.
+int i = 3;
+int a = i++; // a = 3, i = 4
+int b = ++a; // b = 4, a = 4
+
+// in loops and/or conditions
+int pre = 0;
+while (++pre < 5) { // 1,2,3,4 passed the evaluation here
+    System.out.println(pre); // 1,2,3,4
+}
+
+int post = 0;
+while (post++ < 5) { // 0,1,2,3,4 passed the evaluation here
+    System.out.println(post); // 1,2,3,4,5
+}
 ```
