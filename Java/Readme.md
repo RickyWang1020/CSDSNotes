@@ -43,3 +43,17 @@ while (post++ < 5) { // 0,1,2,3,4 passed the evaluation here
     System.out.println(post); // 1,2,3,4,5
 }
 ```
+
+Example 3: a special case
+``` java
+int idx = 1;
+int[] arr = {2,3,4,5,6};
+arr[idx++] = arr[idx+2]; // left part: arr[1], right part: arr[2+2], so the left part is before idx+1, and the right part is already after idx+1
+for (int n:arr) {
+    System.out.println(n); // 2,6,4,5,6
+}
+System.out.println(idx); // 2
+```
+
+## Static Variable
+
