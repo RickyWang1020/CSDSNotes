@@ -1,4 +1,4 @@
-# Notes
+# Java Notes
 
 ## Increment in Java: post and pre methods
 
@@ -126,6 +126,80 @@ class Counter2{
 }  
 ```
 
+### Static Method
+1. a static method belongs to the class, rather than class object
+2. a static method can access (and modify) static variables in the class
+
+``` java
+class Student {
+    int stu_no;
+    String name;
+    static String major = "CS";
+    // a static method to change the value of static variable  
+        static void change() {  
+         major = "DS";  
+    }  
+    
+    //constructor
+    Student(int r, String n){
+        stu_no = r;
+        name = n;
+    }
+    //method to display the values
+    void display() {
+        System.out.println(stu_no + " " + name + " " + major);
+    }   
+}
+
+public class Test{  
+    public static void main(String args[]){  
+        Student s1 = new Student(111, "Karan");  
+        Student s2 = new Student(222, "Aryan");  
+        Student s3 = new Student(333, "Sonoo");  
+        //calling display method  
+        s1.display();  // 111 Karan CS
+        s2.display();  // 222 Aryan CS
+        Student.change();  // here, the major has been changed!
+        s3.display();  // 333 Sonoo DS
+    }  
+}  
+```
+3. a static method can be called without creating class object
+
+``` java
+class Calculate {
+    static int cube (int x) {
+        return x * x * x;
+    }
+}
+
+public class Test{  
+    public static void main(String args[]){  
+        int res = Calculate.cube(5);
+        System.out.println(res);  // 125
+    }
+}
+```
+4. static methods cannot call non-static methods or use non-static data members
+5. this and super cannot be used in static
+6. Note that **main function is also static**, this is because we do not need any object created when we call the main function. If main is non-static, then JVM needs to create an object before executing main function, which will lead to extra memory allocation.
+
+### Static Block
+
+1. it is used to initialize the static data member
+2. it is executed before the main method at the time of loading a class
+
+``` java
+class A2 {  
+    static {System.out.println("static block is invoked");}  
+    public static void main(String args[]){  
+        System.out.println("Hello main");  
+    }  
+}  
+// output: 
+// static block is invoked
+// Hello main
+```
 
 Reference: https://www.javatpoint.com/static-keyword-in-java
 
