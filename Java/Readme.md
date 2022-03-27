@@ -212,3 +212,8 @@ List<List<Integer>> res = new ArrayList<List<Integer>>();
 // add element
 res.add(Arrays.asList(1,2,3,4));
 ```
+
+## Binary Search
+
+https://zhuanlan.zhihu.com/p/79553968
+
