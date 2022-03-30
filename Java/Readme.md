@@ -213,6 +213,14 @@ List<List<Integer>> res = new ArrayList<List<Integer>>();
 res.add(Arrays.asList(1,2,3,4));
 ```
 
+## HashMap Operation
+
+``` java
+// print out the elements in hashmap
+Map<String, Integer> memory = new HashMap();
+System.out.println(Arrays.asList(memory));
+```
+
 ## Binary Search
 
 https://zhuanlan.zhihu.com/p/79553968
