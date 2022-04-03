@@ -5,7 +5,7 @@
 - 中序遍历：左中右
 - Without recursion: **stack**
     -  从root开始，持续把当前node放入stack，并移步到下一个左节点，直至遇到null
-    -  如果当前node不是null或者stack不为空，从stack中pop元素，每次pop即为一个“print”的顺序结果
+    -  如果当前node不是null或者stack不为空，从stack中pop一个元素，每次pop即为一个“print”的顺序结果
     -  对于pop出的node，查看它有没有右node，如果有的话将这个右node也放入stack
     -  对于这个右node，持续把它的左node放入stack直至null
     -  如此操作，直到node为null或者stack空
@@ -22,6 +22,10 @@
 ## Post-order Traversal
 
 - 后序遍历：左右中
+- Without recursion: 2 stacks (easier)
+    - 把root放入stack1
+    - 如果stack1不为空，则pop stack1的一个元素放入stack2，同时把stack1的**左node**（如果有）和**右node**（如果有）依次放入stack2
+    - 如此操作直到stack1空，然后按pop出stack2的所有元素即可
 - Without recursion: **stack**
     - 把**右node**和**root**依次放入stack，并移步到root的左node，直至遇到null
     - 如果stack不为空，从stack中pop一个node元素
