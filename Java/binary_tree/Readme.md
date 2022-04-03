@@ -24,7 +24,7 @@
 - 后序遍历：左右中
 - Without recursion: 2 stacks (easier)
     - 把root放入stack1
-    - 如果stack1不为空，则pop stack1的一个元素放入stack2，同时把stack1的**左node**（如果有）和**右node**（如果有）依次放入stack2
+    - 如果stack1不为空，则pop stack1的一个元素放入stack2，同时把该元素的**左node**（如果有）和**右node**（如果有）依次放入stack1
     - 如此操作直到stack1空，然后按pop出stack2的所有元素即可
 - Without recursion: **stack**
     - 把**右node**和**root**依次放入stack，并移步到root的左node，直至遇到null
@@ -37,5 +37,6 @@
 层序遍历
 
 ## References
-
-https://stackoverflow.com/questions/33022427/how-can-i-traverse-binary-search-tree-without-recursion
+[1] https://stackoverflow.com/questions/33022427/how-can-i-traverse-binary-search-tree-without-recursion
+[2] https://www.geeksforgeeks.org/iterative-postorder-traversal/
+[3] https://www.geeksforgeeks.org/iterative-postorder-traversal-using-stack/
