@@ -26,7 +26,7 @@
     - 把**右node**和**root**依次放入stack，并移步到root的左node，直至遇到null
     - 如果stack不为空，从stack中pop一个node元素
     - 如果该node元素有右node并且右node**在stack top**，表示右子树还没被遍历，此时需要再pop出一个元素（是右node），并且把原node再放回stack；如果该node元素有右node并且右node**不在stack top**，表示右子树已经遍历完成，只需要print该node元素
-    - 如此糙走，直至stack为空
+    - 如此操作，直至stack空
 
 ## Level-order Traversal
 
