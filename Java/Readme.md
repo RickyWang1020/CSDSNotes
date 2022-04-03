@@ -1,5 +1,10 @@
 # Java Notes
 
+## Don't Use Stack, Use Deque?!
+
+https://mp.weixin.qq.com/s/Ba8jrULf8NJbENK6WGrVWg
+
+
 ## Increment in Java: post and pre methods
 
 1) Post-Increment (i++): we first use the current value, and then increment the value of i by 1.
