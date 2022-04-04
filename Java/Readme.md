@@ -216,6 +216,18 @@ import java.util.*;
 List<List<Integer>> res = new ArrayList<List<Integer>>();
 // add element
 res.add(Arrays.asList(1,2,3,4));
+// get the size
+int len = res.size();
+
+// higher-dimensional arraylist
+List<List<Integer>> arr = new ArrayList<>();
+// add new sub-arraylist
+arr.add(new ArrayList<>(Arrays.asList(1,3,5)));
+arr.add(new ArrayList<>(Arrays.asList(2,4,6)));
+System.out.println(arr); // the arraylist is [[1, 3, 5], [2, 4, 6]]
+// change an element in the arraylist within arraylist, using a combination of get and set
+arr.get(0).set(1,100);
+System.out.println(arr); // the arraylist is [[1, 100, 5], [2, 4, 6]]
 ```
 
 ## HashMap Operation
