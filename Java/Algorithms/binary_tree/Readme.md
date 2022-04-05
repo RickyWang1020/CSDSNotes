@@ -25,7 +25,7 @@
 - Without recursion: 2 stacks (easier)
     - 把root放入stack1
     - 如果stack1不为空，则pop stack1的一个元素放入stack2，同时把该元素的**左node**（如果有）和**右node**（如果有）依次放入stack1
-    - 如此操作直到stack1空，然后按pop出stack2的所有元素即可
+    - 如此操作直到stack1空，然后依次pop出stack2的所有元素即可
 - Without recursion: **stack**
     - 把**右node**和**root**依次放入stack，并移步到root的左node
     - 如果stack不为空，从stack中pop一个node元素
@@ -39,7 +39,14 @@
 
 ## Level-order Traversal
 
-层序遍历
+- 层序遍历
+- Recursion
+    - 先算出tree的height，即：从root到最远的leaf node的距离（node数量）
+    - 对height进行枚举遍历，打印出每一个height的层
+- Without recursion: **queue**
+    - 把root放入queue中
+    - 从queue中弹出一个node元素，print该元素并且把该node的**左node**（如果有）和**右node**（如果有）依次放入queue中
+    - 如此操作，直到queue为空
 
 ## References
 [1] https://stackoverflow.com/questions/33022427/how-can-i-traverse-binary-search-tree-without-recursion
@@ -49,3 +56,5 @@
 [3] https://www.geeksforgeeks.org/iterative-postorder-traversal-using-stack/
 
 [4] https://leetcode.com/problems/binary-tree-postorder-traversal/discuss/45648/three-ways-of-iterative-postorder-traversing-easy-explanation
+
+[5] https://www.enjoyalgorithms.com/blog/level-order-traversal-of-binary-tree
