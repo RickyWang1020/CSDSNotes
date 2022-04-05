@@ -238,7 +238,3 @@ Map<String, Integer> memory = new HashMap();
 System.out.println(Arrays.asList(memory));
 ```
 
-## Binary Search
-
-https://zhuanlan.zhihu.com/p/79553968
-
