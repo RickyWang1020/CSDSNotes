@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 class TreeNode {
     int val;
@@ -19,10 +17,10 @@ class TreeNode {
 
 public class BinTree {
 
-    // inorder traversal, iterative using a stack
+    // in-order traversal, iterative using a stack
     static List<Integer> inOrderStack(TreeNode node) {
         List<Integer> result = new ArrayList<>();
-        Stack<TreeNode> s = new Stack<>();
+        Deque<TreeNode> s = new ArrayDeque<>();
         // a pointer to the "current node"
         TreeNode cur = node;
         while (cur != null || !s.isEmpty()) {
@@ -40,10 +38,10 @@ public class BinTree {
         return result;
     }
 
-    // preorder traversal, iterative using a stack
+    // pre-order traversal, iterative using a stack
     static List<Integer> preOrderStack(TreeNode node) {
         List<Integer> result = new ArrayList<>();
-        Stack<TreeNode> s = new Stack<>();
+        Deque<TreeNode> s = new ArrayDeque<>();
         if (node == null) {return result;}
         s.push(node);
         while (!s.isEmpty()) {
@@ -55,11 +53,11 @@ public class BinTree {
         return result;
     }
 
-    // postorder traversal, iterative using two stacks
+    // post-order traversal, iterative using two stacks
     static List<Integer> postOrderTwoStack(TreeNode node) {
         List<Integer> result = new ArrayList<>();
-        Stack<TreeNode> s1 = new Stack<>();
-        Stack<TreeNode> s2 = new Stack<>();
+        Deque<TreeNode> s1 = new ArrayDeque<>();
+        Deque<TreeNode> s2 = new ArrayDeque<>();
         if (node == null) {return result;}
         s1.push(node);
         // iteratively put root to s2 and put root's children to s1
@@ -70,16 +68,16 @@ public class BinTree {
             if (cur.right != null) {s1.push(cur.right);}
         }
         // collect results from s2
-        while (!s2.empty()) {
+        while (!s2.isEmpty()) {
             result.add(s2.pop().val);
         }
         return result;
     }
 
-    // postorder traversal, iterative using a stack
+    // post-order traversal, iterative using a stack
     static List<Integer> postOrderStack(TreeNode node) {
         List<Integer> result = new ArrayList<>();
-        Stack<TreeNode> s = new Stack<>();
+        Deque<TreeNode> s = new ArrayDeque<>();
         if (node == null) {return result;}
         TreeNode cur = node;
         TreeNode prev = null;
@@ -107,27 +105,73 @@ public class BinTree {
         return result;
     }
 
+    // level-order traversal using a queue
+    static List<Integer> levelOrderQueue(TreeNode node) {
+        Queue<TreeNode> q = new LinkedList<>();
+        List<Integer> result = new ArrayList<>();
+        if (node == null) {return result;}
+        q.offer(node);
+        while (!q.isEmpty()) {
+            TreeNode cur = q.poll();
+            result.add(cur.val);
+            if (cur.left != null) {q.offer(cur.left);}
+            if (cur.right != null) {q.offer(cur.right);}
+        }
+        return result;
+    }
 
+
+    // recursive in-order traversal
     static void inOrderRecur(TreeNode node) {
         if (node.left != null) {inOrderRecur(node.left);}
         System.out.printf("%s ", node.val);
         if (node.right != null) {inOrderRecur(node.right);}
     }
 
+    // recursive pre-order traversal
     static void preOrderRecur(TreeNode node) {
         System.out.printf("%s ", node.val);
         if (node.left != null) {preOrderRecur(node.left);}
         if (node.right != null) {preOrderRecur(node.right);}
     }
 
+    // recursive post-order traversal
     static void postOrderRecur(TreeNode node) {
         if (node.left != null) {postOrderRecur(node.left);}
         if (node.right != null) {postOrderRecur(node.right);}
         System.out.printf("%s ", node.val);
     }
 
+    // recursive level-order traversal
+    // get the height of a given node
+    static int getHeight(TreeNode node) {
+        if (node == null) {return 0;}
+        int left_height = getHeight(node.left);
+        int right_height = getHeight(node.right);
+        return Math.max(left_height, right_height) + 1;
+    }
+    // given a root node, reach to its given level and print the elements on that level
+    static void printGivenLevel(TreeNode node, int level) {
+        if (node == null) {return;}
+        if (level == 0) {
+            System.out.printf("%s ", node.val);
+            return;
+        }
+        printGivenLevel(node.left, level-1);
+        printGivenLevel(node.right, level-1);
+    }
+    // for every i within the range of [0,height), print the nodes on level i
+    static void levelOrderRecur(TreeNode node) {
+        int height = getHeight(node);
+        for (int i = 0; i < height; i++) {
+            printGivenLevel(node, i);
+        }
+    }
+
+
     public static void main(String[] args) {
         TreeNode test = new TreeNode(3, new TreeNode(9, new TreeNode(1, new TreeNode(2), new TreeNode(4)), null), new TreeNode(20, new TreeNode(15), new TreeNode(7)));
+
         // the iterative approaches to traversal
         List<Integer> inorder = inOrderStack(test);
         System.out.println(inorder);
@@ -137,6 +181,8 @@ public class BinTree {
         System.out.println(postorder_2s);
         List<Integer> postorder_s = postOrderStack(test);
         System.out.println(postorder_s);
+        List<Integer> levelorder = levelOrderQueue(test);
+        System.out.println(levelorder);
 
         // the recursive approaches to traversal
         inOrderRecur(test);
@@ -144,6 +190,8 @@ public class BinTree {
         preOrderRecur(test);
         System.out.println();
         postOrderRecur(test);
+        System.out.println();
+        levelOrderRecur(test);
         System.out.println();
 
     }
