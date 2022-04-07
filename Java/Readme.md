@@ -236,5 +236,9 @@ System.out.println(arr); // the arraylist is [[1, 100, 5], [2, 4, 6]]
 // print out the elements in hashmap
 Map<String, Integer> memory = new HashMap();
 System.out.println(Arrays.asList(memory));
+// getOrDefault: a good approach to simplify the "counter dictionary" in hashmap
+for (int i : arr) {
+    map.put(i, map.getOrDefault(i, 0) + 1);
+}
 ```
 
