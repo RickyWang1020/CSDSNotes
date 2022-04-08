@@ -1,12 +1,12 @@
-## Boyer–Moore Majority Vote Algorithm
+# Boyer–Moore Majority Vote Algorithm
 
-### Scenario
+## Scenario
 
 - 给定一个长度为n的array，寻找出现次数大于`floor(n/k), k > 1`的元素（这样的元素最多只有`k-1`个）
 - Time complexity: O(n)
 - Space complexity: O(1)
 
-### Understanding
+## Understanding
 
 “有一个对摩尔投票法非常形象的比喻：多方混战。
 
