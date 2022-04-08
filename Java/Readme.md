@@ -242,3 +242,11 @@ for (int i : arr) {
 }
 ```
 
+## HashSet Operation
+``` java
+// convert a hashset to arraylist
+Set<Integer> s = new HashSet<>();
+for (int n: nums) s.add(n);
+List<Integer> lst = new ArrayList<>(s);
+```
+
