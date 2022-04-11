@@ -233,6 +233,8 @@ System.out.println(arr); // the arraylist is [[1, 100, 5], [2, 4, 6]]
 ## HashMap Operation
 
 ``` java
+// initialize a hashmap with pre-set key-value pairs
+Map<Integer, Integer> m = new HashMap() {{put(0,0); put(1,1);}};
 // print out the elements in hashmap
 Map<String, Integer> memory = new HashMap();
 System.out.println(Arrays.asList(memory));
