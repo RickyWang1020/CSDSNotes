@@ -242,6 +242,17 @@ System.out.println(Arrays.asList(memory));
 for (int i : arr) {
     map.put(i, map.getOrDefault(i, 0) + 1);
 }
+// iterate through key-value pairs
+for (Map.Entry<key-type, value-type> entry: map.entrySet()) {
+    // get value
+    value-type val = entry.getValue();
+    // get key
+    key-type k = entry.getKey();
+}
+// iterate through keys
+for (key-type key: map.keySet()) {
+    ...
+}
 ```
 
 ## HashSet Operation
