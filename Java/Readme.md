@@ -263,3 +263,14 @@ for (int n: nums) s.add(n);
 List<Integer> lst = new ArrayList<>(s);
 ```
 
+## TreeMap Operation
+
+- The search and insert in TreeMap only costs `O(logn)` time
+
+``` java
+Map<Integer, Integer> treemap = new TreeMap<Integer, Integer>();
+// ceiling key: get the the smallest key that is >= the given key
+treemap.ceilingKey(5);
+// floor key: get the the largest key that is <= the given key
+treemap.floorKey(5);
+```
