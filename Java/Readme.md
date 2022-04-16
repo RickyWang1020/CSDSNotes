@@ -273,4 +273,5 @@ Map<Integer, Integer> treemap = new TreeMap<Integer, Integer>();
 treemap.ceilingKey(5);
 // floor key: get the the largest key that is <= the given key
 treemap.floorKey(5);
+// if the keys are not found, then it will be null (if null, then the type cannot be int, but Integer)
 ```
