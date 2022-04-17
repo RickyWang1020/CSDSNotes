@@ -253,6 +253,10 @@ for (Map.Entry<key-type, value-type> entry: map.entrySet()) {
 for (key-type key: map.keySet()) {
     ...
 }
+// iterate through values
+for (value-type v: map.values()) {
+    ...
+}
 ```
 
 ## HashSet Operation
