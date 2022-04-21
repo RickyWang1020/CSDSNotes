@@ -208,23 +208,85 @@ class A2 {
 
 Reference: https://www.javatpoint.com/static-keyword-in-java
 
-## ArrayList Operation
+## Array Operation
+
+- For primitive types like `int`, we cannot turn an array of `int` into arrayList of `int`; but we can make it arrayList of `Integer`
+
+``` java 
+// turn an array of int into an arraylist
+Integer[] lst = new Integer[] {1, 2, 3};
+List<Integer> arrlst = Arrays.asList(lst);
+// or just create a new arrayList and put everything in
+List<Integer> arrlst2 = new ArrayList<Integer>();
+for (int i: lst) {
+    arrlst2.add(i);
+}
+```
+
+- For non-primitive types like `String`, we can freely convert between array and arrayList
 
 ``` java
-import java.util.*;
-// create
-List<List<Integer>> res = new ArrayList<List<Integer>>();
-// add element
-res.add(Arrays.asList(1,2,3,4));
-// get the size
-int len = res.size();
+// convert array to arrayList
+String[] strArr = {"1", "2", "3", "4"};
+List<String> strList = Arrays.asList(strArr);
+// convert arrayList to array
+String[] newStrArr = new String[strList.size()];
+strList.toArray(newStrArr);
+```
 
+- Printing the array
+
+``` java
+System.out.println(Arrays.toString(array));
+```
+
+## String Operation
+
+``` java
+// split a string using giving delimiter
+String str = new String("Welcome-to-Runoob");
+System.out.println("- 分隔符返回值 :" );
+for (String retval: str.split("-")){
+    System.out.println(retval);
+}
+
+System.out.println("");
+System.out.println("- 分隔符设置分割份数返回值 :" );
+for (String retval: str.split("-", 2)){
+    System.out.println(retval);
+}
+
+System.out.println("");
+String str2 = new String("www.runoob.com");
+System.out.println("转义字符返回值 :" );
+for (String retval: str2.split("\\.", 3)){
+    System.out.println(retval);
+}
+
+System.out.println("");
+String str3 = new String("acount=? and uu =? or n=?");
+System.out.println("多个分隔符返回值 :" );
+for (String retval: str3.split("and|or")){
+    System.out.println(retval);
+}
+```
+
+Reference: https://www.runoob.com/java/java-string-split.html
+
+## ArrayList Operation
+
+- We cannot have List of primitive types!
+
+``` java
 // higher-dimensional arraylist
-List<List<Integer>> arr = new ArrayList<>();
+// create
+List<List<Integer>> arr = new ArrayList<List<Integer>>();
 // add new sub-arraylist
 arr.add(new ArrayList<>(Arrays.asList(1,3,5)));
 arr.add(new ArrayList<>(Arrays.asList(2,4,6)));
 System.out.println(arr); // the arraylist is [[1, 3, 5], [2, 4, 6]]
+// get the size
+int len = arr.size();
 // change an element in the arraylist within arraylist, using a combination of get and set
 arr.get(0).set(1,100);
 System.out.println(arr); // the arraylist is [[1, 100, 5], [2, 4, 6]]
