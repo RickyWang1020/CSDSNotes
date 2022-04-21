@@ -242,8 +242,9 @@ System.out.println(Arrays.toString(array));
 
 ## String Operation
 
+- Split a string using giving delimiter
+
 ``` java
-// split a string using giving delimiter
 String str = new String("Welcome-to-Runoob");
 System.out.println("- 分隔符返回值 :" );
 for (String retval: str.split("-")){
@@ -273,12 +274,39 @@ for (String retval: str3.split("and|or")){
 
 Reference: https://www.runoob.com/java/java-string-split.html
 
+- Stringbuilder
+
+``` java
+// initiate
+StringBuilder sb = new StringBuilder();
+// append, can be char or string
+sb.append("abcde");
+sb.append('f');
+// remove element
+result.deleteCharAt(result.length() - 1);
+// take a selected slice of the Stringbuilder
+Stringbuilder new_sb = result.substring(1, result.length() - 1);
+// convert Stringbuilder back to String
+String s = sb.toString();
+```
+
 ## ArrayList Operation
 
 - We cannot have List of primitive types!
 
+- Bulk add multiple elements to an arrayList
+
 ``` java
-// higher-dimensional arraylist
+// approach 1
+Integer[] otherList = new Integer[] {1, 2, 3, 4, 5};
+arList.addAll(Arrays.asList(otherList));
+// approach 2
+arList.addAll(Arrays.asList(1, 2, 3, 4, 5));
+```
+
+- Higher-dimensional arrayList:
+
+``` java
 // create
 List<List<Integer>> arr = new ArrayList<List<Integer>>();
 // add new sub-arraylist
