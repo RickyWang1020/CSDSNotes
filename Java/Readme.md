@@ -234,13 +234,30 @@ String[] newStrArr = new String[strList.size()];
 strList.toArray(newStrArr);
 ```
 
-- Printing the array
+- Print the array
 
 ``` java
 System.out.println(Arrays.toString(array));
 ```
 
+- Make a copy of an array
+
+``` java
+// approach 1
+int[] secondArray = Arrays.copyOf (firstArray, firstArray.length);
+// approach 2
+int[] secondArray = new int[firstArray.length];
+System.arraycopy(firstArray, 0, secondArray, 0, firstArray.length);
+```
+
 ## String Operation
+
+- Get the length of a string
+
+``` java
+String s1 = "ilovejava";
+int len1 = s1.length();
+```
 
 - Split a string using giving delimiter
 
@@ -274,7 +291,7 @@ for (String retval: str3.split("and|or")){
 
 Reference: https://www.runoob.com/java/java-string-split.html
 
-- Stringbuilder
+- Stringbuilder: a good way to build and edit a string
 
 ``` java
 // initiate
@@ -322,16 +339,30 @@ System.out.println(arr); // the arraylist is [[1, 100, 5], [2, 4, 6]]
 
 ## HashMap Operation
 
+- Initialize a hashmap with pre-set key-value pairs
+
 ``` java
-// initialize a hashmap with pre-set key-value pairs
 Map<Integer, Integer> m = new HashMap() {{put(0,0); put(1,1);}};
-// print out the elements in hashmap
+```
+
+- Print out the elements in hashmap
+
+``` java
 Map<String, Integer> memory = new HashMap();
 System.out.println(Arrays.asList(memory));
-// getOrDefault: a good approach to simplify the "counter dictionary" in hashmap
+```
+
+- getOrDefault: a good approach to simplify the "counter dictionary" in hashmap
+
+``` java
 for (int i : arr) {
     map.put(i, map.getOrDefault(i, 0) + 1);
 }
+```
+
+- Iterate through hashmaps
+
+``` java
 // iterate through key-value pairs
 for (Map.Entry<key-type, value-type> entry: map.entrySet()) {
     // get value
@@ -350,16 +381,25 @@ for (value-type v: map.values()) {
 ```
 
 ## HashSet Operation
+
+- Convert a hashset to arraylist
+
 ``` java
-// convert a hashset to arraylist
 Set<Integer> s = new HashSet<>();
 for (int n: nums) s.add(n);
 List<Integer> lst = new ArrayList<>(s);
 ```
 
+- Initiate a hashset with initialized values
+
+``` java
+Set<String> h = new HashSet<>(Arrays.asList("a", "b"));
+```
+
 ## TreeMap Operation
 
 - The search and insert in TreeMap only costs `O(logn)` time
+- Floor and Ceiling Keys
 
 ``` java
 Map<Integer, Integer> treemap = new TreeMap<Integer, Integer>();
