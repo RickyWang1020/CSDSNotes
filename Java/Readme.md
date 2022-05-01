@@ -303,6 +303,8 @@ sb.append('f');
 result.deleteCharAt(result.length() - 1);
 // take a selected slice of the Stringbuilder
 Stringbuilder new_sb = result.substring(1, result.length() - 1);
+// reverse the stringbuilder object
+StringBuilder reverseStr = sb.reverse();
 // convert Stringbuilder back to String
 String s = sb.toString();
 ```
