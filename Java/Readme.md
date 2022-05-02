@@ -265,6 +265,13 @@ int len1 = s1.length();
 String st = s.trim();
 ```
 
+- Join an ArrayList of Strings into a whole String
+
+``` java
+List<String> lst = Arrays.asList(new String[] {"hello", "helo", "world"});
+String join_str = String.join(" ", lst);
+```
+
 - Split a string using giving delimiter (can also use regex as delimiter!)
 
 ``` java
