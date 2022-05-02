@@ -259,7 +259,13 @@ String s1 = "ilovejava";
 int len1 = s1.length();
 ```
 
-- Split a string using giving delimiter
+- Remove the spaces in the beginning and end of the string
+
+``` java
+String st = s.trim();
+```
+
+- Split a string using giving delimiter (can also use regex as delimiter!)
 
 ``` java
 String str = new String("Welcome-to-Runoob");
