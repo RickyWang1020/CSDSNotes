@@ -259,6 +259,14 @@ String s1 = "ilovejava";
 int len1 = s1.length();
 ```
 
+- Char Array and String Conversion
+
+``` java
+String s = "hello";
+char[] arr = s.toCharArray();
+String s1 = String.valueOf(arr);
+```
+
 - Remove the spaces in the beginning and end of the string
 
 ``` java
