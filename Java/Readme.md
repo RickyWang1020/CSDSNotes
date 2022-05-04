@@ -330,6 +330,18 @@ StringBuilder reverseStr = sb.reverse();
 String s = sb.toString();
 ```
 
+- Conversion between Int and String
+
+``` java
+// convert string to int (also works for negative int)
+String s = "100";
+Int x = Integer.parseInt(s);
+// convert int to string, method 1
+String s1 = String.valueOf(x);
+// method 2
+String s2 = Integer.toString(x);
+```
+
 ## ArrayList Operation
 
 - We cannot have List of primitive types!
