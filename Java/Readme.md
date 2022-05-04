@@ -232,6 +232,8 @@ List<String> strList = Arrays.asList(strArr);
 // convert arrayList to array
 String[] newStrArr = new String[strList.size()];
 strList.toArray(newStrArr);
+// or a one-line way
+String[] result = strList.toArray(new String[strList.size()]);
 ```
 
 - Print the array
