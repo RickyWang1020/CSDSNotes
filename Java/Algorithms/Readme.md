@@ -17,6 +17,11 @@
 - [YouTube video on UF concept](https://www.youtube.com/watch?v=wU6udHRIkcc&list=LL&index=1)
 - [My implementation](https://github.com/RickyWang1020/CSDSNotes/tree/master/Java/Algorithms/disjoint_set)
 
+### Heap
+
+- [YouTube tutorial](https://www.youtube.com/watch?v=HqPJF2L5h9U)
+- [My implementation](https://github.com/RickyWang1020/CSDSNotes/tree/master/Java/Algorithms/heap)
+
 ### Majority Vote
 
 - [My implementation](https://github.com/RickyWang1020/CSDSNotes/tree/master/Java/Algorithms/majority_vote)
