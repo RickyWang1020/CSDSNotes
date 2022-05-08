@@ -401,7 +401,7 @@ for (int i : arr) {
 
 ``` java
 for (int i = 0; i < N; ++i) {
-        map.computeIfAbsent(i, x-> new ArrayList<Integer>());
+    map.computeIfAbsent(i, x-> new ArrayList<Integer>());
 }
 ```
 
