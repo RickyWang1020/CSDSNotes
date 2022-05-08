@@ -397,6 +397,14 @@ for (int i : arr) {
 }
 ```
 
+- computeIfAbsent: 如果 key 对应的 value 不存在，则使用获取 remappingFunction 重新计算后的值，并保存为该 key 的 value，否则返回 value
+
+``` java
+for (int i = 0; i < N; ++i) {
+        map.computeIfAbsent(i, x-> new ArrayList<Integer>());
+}
+```
+
 - Iterate through hashmaps
 
 ``` java
