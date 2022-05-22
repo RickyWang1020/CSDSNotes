@@ -8,6 +8,10 @@
 
 - [My implementation](https://github.com/RickyWang1020/CSDSNotes/tree/master/Java/Algorithms/binary_tree)
 
+### Boyer–Moore Algorithm on Majority Vote
+
+- [My implementation](https://github.com/RickyWang1020/CSDSNotes/tree/master/Java/Algorithms/majority_vote)
+
 ### Breadth/ Depth First Search
 
 - [My implementation](https://github.com/RickyWang1020/CSDSNotes/tree/master/Java/Algorithms/bfs_dfs)
@@ -22,6 +26,7 @@
 - [YouTube tutorial](https://www.youtube.com/watch?v=HqPJF2L5h9U)
 - [My implementation](https://github.com/RickyWang1020/CSDSNotes/tree/master/Java/Algorithms/heap)
 
-### Majority Vote
+### KMP Algorithm on String Matching
 
-- [My implementation](https://github.com/RickyWang1020/CSDSNotes/tree/master/Java/Algorithms/majority_vote)
+- [YouTube tutorial](https://www.youtube.com/watch?v=V5-7GzOfADQ)
+- [My implementation](https://github.com/RickyWang1020/CSDSNotes/tree/master/Java/Algorithms/kmp)
