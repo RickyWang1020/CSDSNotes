@@ -6,11 +6,16 @@
 - **Full BT**: the leaf nodes all have the same heights
 - Full BT is also a Complete BT
 
-## Min Heap
+## Min/Max Heap Concepts
 
 - Is a **Complete Binary Tree**
-- Parent Node is Always <= Children Nodes
+- Min heap: Parent Node is Always `<=` Children Nodes; Max heap: Parent Node is Always `>=` Children Nodes
 - If `N` is the parent node's index, then `2N` is left child node, `2N+1` is right child node
-- Building a Min Heap:
-  - Build a Heap First (Put elements into a "Binary Tree", or just an Array)
-  - 
+
+## Inserting an element (Max heap)
+
+## Deleting an element (Max heap)
+
+## Building a Heap
+
+- Build a Heap First (Put elements into a "Binary Tree", or just an Array)
