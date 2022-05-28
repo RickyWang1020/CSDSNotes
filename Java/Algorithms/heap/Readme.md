@@ -25,7 +25,7 @@ In a Max heap:
 In a Max heap: **(We are only allowed to remove the Root element from heap)**
 
 - Delete the root element and put the last leaf node to the root's place
-- Compare the current top element with the max of its two children, and swap downwards if the current top value `<` the max of two children values
+- Compare the current top element with the max of its two children, and swap downwards (with the max of the two children) if the current top value `<` the max of two children values
 - Stop until the current element `>=` both of its chlidren values
 
 ## Heap Sort
