@@ -35,4 +35,16 @@ In a Max heap: **(We are only allowed to remove the Root element from heap)**
 - **Insert** every element into the heap, and then **Delete** every element from the heap, so that the elements are sorted
 - Time complexity: `O(nlogn)`
 
+## Heapify (Another way of Building a Heap)
+
+- Start from an array that is not a heap
+- Iterate from the end to the beginning, for every element, take itself as the "root" of a heap, and see if its children follow the heap rules
+- If not, then the procedure is similar to the "deleting an element" swap steps: swap with downward element
+- Time complexity: `O(n)`, better than normal insertion of `n` elements, which is `O(nlogn)`
+
 ## Priority Queue
+
+- Heap is an efficient data structure for implementing priority queue
+- If smaller number means higher priority, then use a min heap; if larger number means higher priority, then use a max heap
+- Insertion and Deletion time complexity: `O(logn)`
+- If use a normal array, the insertion and deletion time will be (on average) `O(n)`
