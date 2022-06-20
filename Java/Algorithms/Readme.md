@@ -25,6 +25,7 @@
 
 - [YouTube tutorial](https://www.youtube.com/watch?v=HqPJF2L5h9U)
 - [My implementation](https://github.com/RickyWang1020/CSDSNotes/tree/master/Java/Algorithms/heap)
+- [Java PQ implementation](https://github.com/RickyWang1020/CSDSNotes/blob/master/Java/Algorithms/heap/priority_queue.java)
 
 ### KMP Algorithm on String Matching
 
