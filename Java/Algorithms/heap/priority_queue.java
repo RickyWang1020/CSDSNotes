@@ -20,6 +20,9 @@ public class PriQue {
         while (!pq_max.isEmpty()) {
             System.out.println(pq_max.remove()); // 36 16 6
         }
+        
+        // another way to implement max heap
+        PriorityQueue<Integer> pq_max2 = new PriorityQueue<>((a,b) -> Integer.compare(b,a));
 
         // a priority queue based on customized comparator
         Comparator<String> stringLengthComparator = new Comparator<String>() {
