@@ -234,6 +234,10 @@ String[] newStrArr = new String[strList.size()];
 strList.toArray(newStrArr);
 // or a one-line way
 String[] result = strList.toArray(new String[strList.size()]);
+
+// converting list of int[] to int[][] array
+// important: it is int[result.size()][], not int[][result.size()]!
+int[][] ans = result.toArray(new int[result.size()][])
 ```
 
 - Print the array
