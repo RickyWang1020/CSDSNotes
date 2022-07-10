@@ -336,6 +336,25 @@ StringBuilder reverseStr = sb.reverse();
 String s = sb.toString();
 ```
 
+- Check whether a String is Numeric
+
+``` java
+// method 1: brute force conversion and check
+public static boolean isNumeric(String str) { 
+  try {  
+    Double.parseDouble(str);  
+    return true;
+  } catch (NumberFormatException e){  
+    return false;  
+  }  
+}
+
+// method 2: regular expression to match a number with optional '-' and decimal
+public static boolean isNumeric(String str) {
+  return str.matches("-?\\d+(\\.\\d+)?");
+}
+```
+
 - Conversion between Int and String
 
 ``` java
