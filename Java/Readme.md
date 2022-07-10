@@ -344,7 +344,8 @@ public static boolean isNumeric(String str) {
   try {  
     Double.parseDouble(str);  
     return true;
-  } catch (NumberFormatException e){  
+  } 
+  catch (NumberFormatException e) {  
     return false;  
   }  
 }
@@ -360,7 +361,7 @@ public static boolean isNumeric(String str) {
 ``` java
 // convert string to int (also works for negative int)
 String s = "100";
-Int x = Integer.parseInt(s);
+int x = Integer.parseInt(s);
 // convert int to string, method 1
 String s1 = String.valueOf(x);
 // method 2
