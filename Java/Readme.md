@@ -318,8 +318,9 @@ for (String retval: str3.split("and|or")){
 
 Reference: https://www.runoob.com/java/java-string-split.html
 
-- Stringbuilder: a good way to build and edit a string
-
+- StringBuilder: a good way to build and edit a string
+    - StringBuilder不线程安全，但是速度更快；如果需要线程安全则需要使用StringBuffer
+    
 ``` java
 // initiate
 StringBuilder sb = new StringBuilder();
