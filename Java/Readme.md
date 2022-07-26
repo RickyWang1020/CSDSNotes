@@ -483,18 +483,28 @@ treemap.floorKey(5);
 # ArrayDeque Operation
 
 - 双端队列接口，包含“头端”和“尾端”，可以用来模拟stack和queue的数据结构
-- 从尾部的操作：
+- 从尾部的操作：一般是queue的add端
     - add()：尾部插入
     - addLast()：尾部插入
     - addAll()：尾部插入一个iterator内的所有元素
     - offer()：尾部插入
     - offerLast()：尾部插入
     - getLast()：获取尾部元素
-- 从头部的操作：
+    - peekLast()：获取尾部元素
+    - removeLast()：获取并删除尾部元素
+    - pollLast()：获取并删除尾部元素
+
+- 从头部的操作：头部是stack的push、pop、peek端，一般也是queue的pop端
     - addFirst()：头部插入
     - offerFirst()：头部插入
+    - push()：头部插入
     - element()：获取头部元素
     - getFirst()：获取头部元素
     - peek()：获取头部元素
+    - peekFirst()：获取头部元素
     - poll()：获取并删除头部元素
+    - pollFirst()：获取并删除头部元素
+    - pop()：获取并删除头部元素
+    - remove()：获取并删除头部元素
+    - removeFirst()：获取并删除头部元素
     
