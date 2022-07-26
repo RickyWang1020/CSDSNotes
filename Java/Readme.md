@@ -479,3 +479,22 @@ treemap.ceilingKey(5);
 treemap.floorKey(5);
 // if the keys are not found, then it will be null (if null, then the type cannot be int, but Integer)
 ```
+
+# ArrayDeque Operation
+
+- 双端队列接口，包含“头端”和“尾端”，可以用来模拟stack和queue的数据结构
+- 从尾部的操作：
+    - add()：尾部插入
+    - addLast()：尾部插入
+    - addAll()：尾部插入一个iterator内的所有元素
+    - offer()：尾部插入
+    - offerLast()：尾部插入
+    - getLast()：获取尾部元素
+- 从头部的操作：
+    - addFirst()：头部插入
+    - offerFirst()：头部插入
+    - element()：获取头部元素
+    - getFirst()：获取头部元素
+    - peek()：获取头部元素
+    - poll()：获取并删除头部元素
+    
