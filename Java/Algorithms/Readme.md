@@ -3,6 +3,7 @@
 ### Binary Search
 
 - [A great post on Zhihu about BS](https://zhuanlan.zhihu.com/p/79553968)
+- [My implementation](https://github.com/RickyWang1020/CSDSNotes/tree/master/Java/Algorithms/binary_search)
 
 ### Binary Tree Traversal
 
