@@ -22,3 +22,17 @@ while (left < right) {
         left = mid + 1;
     }
 }
+
+// 二分搜索模版：即使left和right相等的时候也可以检查是否搜索到结果
+long left = 0, right = 1000000;
+while (left < right) {
+    long mid = left + right + 1 >> 1;
+    if (matrix[mid] >= target) {
+        left = mid;
+    }
+    else {
+        right = mid - 1;
+    }
+}
+if (matrix[right] == target) return true;
+
