@@ -1,1 +1,10 @@
 Pandas/** linguist-detectable=false
+
+C_Cpp/** linguist-detectable=true
+ElasticSearch/** linguist-detectable=true
+Golang/** linguist-detectable=true
+Java/** linguist-detectable=true
+JavaScript/** linguist-detectable=true
+Network/** linguist-detectable=true
+Python/** linguist-detectable=true
+Sql/** linguist-detectable=true
