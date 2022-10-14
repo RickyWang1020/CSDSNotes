@@ -17,6 +17,10 @@
 
 - [My implementation](https://github.com/RickyWang1020/CSDSNotes/tree/master/Java/Algorithms/bfs_dfs)
 
+### Dijkstra Shortest Path
+
+- [My implementation](https://github.com/RickyWang1020/CSDSNotes/tree/master/Java/Algorithms/dijkstra)
+
 ### Disjoint Set (Union Find)
 
 - [YouTube video on UF concept](https://www.youtube.com/watch?v=wU6udHRIkcc&list=LL&index=1)
