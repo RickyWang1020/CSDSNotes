@@ -5,9 +5,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 /**
- * The Main class implements an application that reads lines from the standard input
- * and prints them to the standard output.
+Given a series of convertion from one currency to another, find the possible largest convertion from a given currency to another given currency
  */
+
 public class Main {
     /**
      * Iterate through each line of input.
