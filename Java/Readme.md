@@ -480,7 +480,7 @@ treemap.floorKey(5);
 // if the keys are not found, then it will be null (if null, then the type cannot be int, but Integer)
 ```
 
-# ArrayDeque Operation
+## ArrayDeque Operation
 
 - 双端队列接口，包含“头端”和“尾端”，可以用来模拟stack和queue的数据结构
 - 从尾部的操作：一般是queue的add端
@@ -507,4 +507,3 @@ treemap.floorKey(5);
     - pop()：获取并删除头部元素
     - remove()：获取并删除头部元素
     - removeFirst()：获取并删除头部元素
-    
