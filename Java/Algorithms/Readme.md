@@ -19,6 +19,7 @@
 
 ### Dijkstra Shortest Path
 
+- [YouTube tutorial](https://www.youtube.com/watch?v=XB4MIexjvY0)
 - [My implementation](https://github.com/RickyWang1020/CSDSNotes/tree/master/Java/Algorithms/dijkstra)
 
 ### Disjoint Set (Union Find)
@@ -36,3 +37,7 @@
 
 - [YouTube tutorial](https://www.youtube.com/watch?v=V5-7GzOfADQ)
 - [My implementation](https://github.com/RickyWang1020/CSDSNotes/tree/master/Java/Algorithms/kmp)
+
+### Topological Sort
+
+- [My implementation](https://github.com/RickyWang1020/CSDSNotes/tree/master/Java/Algorithms/topological_sort)
