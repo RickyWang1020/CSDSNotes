@@ -15,8 +15,14 @@ if (d[u] + c(u,v) < d[v]):
 2. Pick the node with the smallest `d` value, check all its connected nodes **that have not been picked**, perform relaxations
 3. Repeat step 2 until all nodes are picked, output the shortest paths lengths (`d`) from source to all other nodes
 
-
 Time complexity: `O(|V|^2)` (if all the nodes are connected to each other)
+
+## Implementation
+
+1. Graph construction: adjacency list or adjacency matrix
+2. `dist[]` array for shortest paths lengths
+3. `visited[]` array for tracking whether a node has been settled down
+4. Iterative method or Priority Queue method
 
 ## Drawback
 
