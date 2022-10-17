@@ -7,7 +7,7 @@ public class TopoSort {
     // adjacency list implementation
     static int[] head = new int[V], edge = new int[E], nextEdge = new int[E];
     // keep track of the in-degree of each node
-    static int[] in = new int[E];
+    static int[] in = new int[V];
 
     static void add(int start, int end) {
         edge[idx] = end;
@@ -63,6 +63,13 @@ public class TopoSort {
         System.out.println(Arrays.deepToString(graph));
         List<Integer> res = topoSort(6, graph);
         System.out.println(res);
+        
+        int[][] graph2 = new int[2][2];
+        graph2[0] = new int[]{1, 0};
+        graph2[1] = new int[]{0, 1};
+        System.out.println(Arrays.deepToString(graph2));
+        List<Integer> res2 = topoSort(2, graph2);
+        System.out.println(res2);
 
     }
 }
