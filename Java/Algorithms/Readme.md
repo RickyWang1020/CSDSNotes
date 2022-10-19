@@ -33,10 +33,19 @@
 - [My implementation](https://github.com/RickyWang1020/CSDSNotes/tree/master/Java/Algorithms/heap)
 - [Java PQ implementation](https://github.com/RickyWang1020/CSDSNotes/blob/master/Java/Algorithms/heap/priority_queue.java)
 
+### Hash Tables
+
+- 
+
 ### KMP Algorithm on String Matching
 
 - [YouTube tutorial](https://www.youtube.com/watch?v=V5-7GzOfADQ)
 - [My implementation](https://github.com/RickyWang1020/CSDSNotes/tree/master/Java/Algorithms/kmp)
+
+### Sorting Algorithms
+
+- Bubble sort, Merge sort, Heap sort, Insertion sort, Quick sort, Bucket sort
+- [My implementation](https://github.com/RickyWang1020/CSDSNotes/tree/master/Java/Algorithms/sort)
 
 ### Topological Sort
 
