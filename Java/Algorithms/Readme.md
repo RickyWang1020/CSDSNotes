@@ -21,6 +21,7 @@
 
 - [YouTube tutorial](https://www.youtube.com/watch?v=XB4MIexjvY0)
 - [My implementation](https://github.com/RickyWang1020/CSDSNotes/tree/master/Java/Algorithms/dijkstra)
+- [Java Graph representation](https://github.com/RickyWang1020/CSDSNotes/tree/master/Java/Algorithms/dijkstra/graph_representation.java)
 
 ### Disjoint Set (Union Find)
 
