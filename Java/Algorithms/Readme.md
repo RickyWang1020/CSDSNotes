@@ -45,7 +45,7 @@
 
 ### Sorting Algorithms
 
-- Bubble sort, Merge sort, Heap sort, Insertion sort, Quick sort, Bucket sort
+- Bubble sort, Merge sort, Heap sort, Selection sort, Insertion sort, Quick sort, Bucket sort
 - [My implementation](https://github.com/RickyWang1020/CSDSNotes/tree/master/Java/Algorithms/sort)
 
 ### Topological Sort
