@@ -2,8 +2,11 @@
 
 ## Bubble sort
 
+- In every iteration, (if want to sort in ascending order) the largest element in the unsorted subarray will be swapped to the end of array
 
-Time Complexity: `O(n^2)`
+- Outer loop: `0` to `n-1`; Inner loop: `0` to `n-i-1` if there are already `i+1` numbers "floated" to the end of array
+
+- Time Complexity: `O(n^2)`
 
 ## Merge sort
 
