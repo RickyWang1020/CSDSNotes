@@ -1,6 +1,6 @@
 # Sorting Algorithms
 
-Assume we want to sort the array in ascending order, for all following cases.
+Assume we want to sort the array in ascending order (from small to large), for all following cases.
 
 ## Bubble sort
 
@@ -12,14 +12,6 @@ Assume we want to sort the array in ascending order, for all following cases.
 
 - Time Complexity: `O(n^2)`
 
-## Merge sort
-
-Time Complexity: `O(nlogn)`
-
-## Heap sort
-
-## Insertion sort
-
 ## Selection sort
 
 - Outer loop: `i = 0` to `n-1`, meaning that we now need to find the smallest element from the right subarray and swap it to the i-th position
@@ -27,6 +19,14 @@ Time Complexity: `O(nlogn)`
 - Inner loop: `j = i+1` to `n-1`, which is the right subarray
 
 - Time Complexity: `O(n^2)`
+
+## Merge sort
+
+Time Complexity: `O(nlogn)`
+
+## Heap sort
+
+## Insertion sort
 
 ## Quick sort
 
