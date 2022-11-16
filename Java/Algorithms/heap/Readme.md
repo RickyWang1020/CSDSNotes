@@ -40,7 +40,7 @@ In a Max heap: **(We are only allowed to remove the Root element from heap)**
 - Start from an array that is not a heap
 - Iterate from the end to the beginning, for every element, take itself as the "root" of a heap, and see if its children follow the heap rules
 - If not, then the procedure is similar to the "deleting an element" swap steps: swap with downward element
-- Time complexity: `O(n)`, better than normal insertion of `n` elements, which is `O(nlogn)`
+- Time complexity for `n` elements: analytically `O(n)`, better than normal insertion of `n` elements, which is `O(nlogn)`
 
 ## Priority Queue
 
