@@ -26,6 +26,22 @@ Time Complexity: `O(nlogn)`
 
 ## Heap sort
 
+- Also see notes on [heap](https://github.com/RickyWang1020/CSDSNotes/tree/master/Java/Algorithms/heap)
+
+- Heapify: start from the given root of a subtree, compare and swap downwards to maintain a heap structure
+
+- Heap sort: 
+
+  - Build a heap: from the original array, only heapify the non-leaf nodes in reversed order (bottom-up heapify)
+  
+  - Remove the root node (current smallest/largest element) and put the last element of array as the new root
+  
+  - Repeat the steps until the heap is empty
+  
+- In-place implementation: build a max-heap, every time swap the root node with the last element in heap, so that the largest element is at the end of array
+
+- Time Complexity: `O(nlogn)`
+
 ## Insertion sort
 
 ## Quick sort
