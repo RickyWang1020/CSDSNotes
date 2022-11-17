@@ -50,7 +50,7 @@ Assume we want to sort the array in ascending order (from small to large), for a
 
 - Idea: iterate through each number, compare this number with every number prior to it (i.e., already sorted), and insert this into the proper index
 
-- Implementation: use "swap" instead of "insert"
+- Implementation: use "swap"/"overwrite" instead of "insert"
 
 - Time Complexity: `O(n^2)`
 
