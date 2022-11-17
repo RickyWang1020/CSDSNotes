@@ -22,7 +22,9 @@ Assume we want to sort the array in ascending order (from small to large), for a
 
 ## Merge sort
 
-Time Complexity: `O(nlogn)`
+- Divide and conquer: split the array into half, perform merge sort on the two subarrays, and merge the two sorted subarrays into one sorted array
+
+- Time Complexity: `O(nlogn)`
 
 ## Heap sort
 
