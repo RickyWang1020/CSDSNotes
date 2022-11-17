@@ -24,6 +24,8 @@ Assume we want to sort the array in ascending order (from small to large), for a
 
 - Divide and conquer: split the array into half, perform merge sort on the two subarrays, and merge the two sorted subarrays into one sorted array
 
+- Iterative: start from subarrays of length 1, and merge them by pairs, until reach the full array
+
 - Time Complexity: `O(nlogn)`
 
 ## Heap sort
@@ -45,6 +47,12 @@ Assume we want to sort the array in ascending order (from small to large), for a
 - Time Complexity: `O(nlogn)`
 
 ## Insertion sort
+
+- Idea: iterate through each number, compare this number with every number prior to it (i.e., already sorted), and insert this into the proper index
+
+- Implementation: use "swap" instead of "insert"
+
+- Time Complexity: `O(n^2)`
 
 ## Quick sort
 
