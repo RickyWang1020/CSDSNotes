@@ -56,8 +56,12 @@ Assume we want to sort the array in ascending order (from small to large), for a
 
 ## Quick sort
 
-Average Time Complexity: `O(nlogn)`
+- Randomly pick a pivot every iteration, swap all elements <= pivot to the left of the pivot, and swap all elements > pivot to the right of the pivot, repeat the process for left and right subarrays, until the subarray only has 1 element
 
-Worst Time Complexity: `O(n^2)`
+- Average Time Complexity: `O(nlogn)`, Worst Time Complexity: `O(n^2)`
+
+- Why is quick sort better than merge sort in arrays?
+
+  - Quick sort is in-place, while Merge sort requires `O(n)` extra space
 
 ## Bucket sort
