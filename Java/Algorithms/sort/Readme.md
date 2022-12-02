@@ -65,3 +65,9 @@ Assume we want to sort the array in ascending order (from small to large), for a
   - Quick sort is in-place, while Merge sort requires `O(n)` extra space
 
 ## Bucket sort
+
+- Create `k` buckets, and put elements into the buckets, and sort each (non-empty) bucket using any stable sorting algorithm
+
+- Useful when the data are uniformly distributed over a certain range
+
+- Average Time Complexity: `O(n)` if `n ≈ k`, Worst Time Complexity: `O(n^2)` or `O(nlogn)` when all data are in one bucket
