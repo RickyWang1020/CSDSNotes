@@ -1,7 +1,7 @@
 import java.lang.reflect.Array;
 import java.util.*;
 
-public class Main {
+public class Maps {
     public static void main(String[] args) {
         // Array, we cannot change its length
         // create an array by assigning the length
